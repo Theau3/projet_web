@@ -1,0 +1,164 @@
+body{
+    background-color: #31302E;
+}
+
+h1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 128px;
+    text-align: center;
+    margin-top: 10px;
+    color: #DADEE3;
+}
+/*footer*/
+footer{
+   margin-top: 43px;
+   display: flex;
+   justify-content: space-between;
+}
+
+footer hr{
+    width: 185px;
+    height: 0px;
+    border : 1px solid #FFFFFF;
+    order : 2;
+    margin-top: 0px;
+    margin-bottom: 130px;
+    margin-left : 10px;
+}
+
+footer p {
+    color: #FFFFFF;
+    order : 1;
+    margin-left: 160px;
+    margin-top: 56px;  
+}
+
+#btn-contact{
+    background: #E86C00;
+    color : #FFFFFF;
+    order : 3;
+    margin-right: 60px;
+    margin-top: 43px;
+    max-height: 50px;
+}
+/*user infos*/
+#user-infos{
+    background-color: #625D52;
+    width: 229px;
+    height: 149px;
+    position : absolute;
+    right : 0;
+    top : 0;
+    border-radius : 0 0 0 15px;
+    color: #EBEEF2;
+    text-align: center;
+    padding-top : 12px;
+}
+
+#profile_picture{
+    height : 40px;
+    border-radius: 20px;
+}
+
+#title{
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+#username{
+    font-family: 'Source Sans Pro'; 
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    margin-left : 10px;
+}
+
+.fa-bell-o{
+    color : #EBEEF2;
+}
+
+#parametres{
+    font-family: 'Source Sans Pro'; 
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px; 
+    color : #A5ABB3;
+}
+
+.fa-gear{
+    color : #A5ABB3;
+}
+
+.progress-bar{
+    background-color : #E86C00;
+}
+.progress{
+    border-radius: 0px;
+    background-color: #885221;
+    margin-left : 45px;
+    margin-right : 45px;
+    height : 10px;
+}
+
+#niveau{
+    font-family: 'Source Sans Pro'; 
+    font-style: normal;
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 20px; 
+}
+
+/*nav*/
+
+nav{
+    position : absolute;
+    top: calc(50% - 100px);
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+nav a{
+    color: #FFFFFF;
+    margin-top: 20px;
+    font-size: 17px;
+}
+
+nav a:hover{
+    color: #E86C00;
+}
+
+nav hr{
+    position : absolute;
+    width : 3px;
+    height : 17px;
+    background-color: #E86C00;
+    left : -12px;
+    top : 41px;
+    border : none;
+    opacity: .75;
+ }
+
+ #selected_icon{
+    color: #E86C00;
+ }
+
+ nav #separator{
+    position : absolute;
+    width : 1px;
+    height : 140px;
+    background-color: #FFFFFF;
+    left : 32px;
+    top : calc(50% - 60px);
+ }
+
+ #subpage{
+    margin-left: calc(50% - 627px);
+ }
