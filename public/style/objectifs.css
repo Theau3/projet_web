@@ -1,6 +1,48 @@
 #BodyObjectifs{
     background-color: #534F47;
-    width: 1254px;
-    height : 755px;
+    width: 65%;
+    height : 70%;
     border-radius: 15px;
+    display : flex;
+    flex-direction: column;
 }
+
+#HeaderObjectifs{
+    flex:1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap : 25%;
+    margin-top: 4%;
+    padding-bottom: 4%;
+}
+
+#HeaderObjectifs a{
+    font-size:x-large;
+    font-family: 'poppins';
+    color : white;
+    text-decoration-color: white;
+    text-decoration-thickness: 3px;
+}
+
+#BoutonAjout{
+    margin-right: 3%;
+    margin-top: -1%;
+}
+
+#non_selected{
+    text-decoration: none;
+}
+
+#Objectifs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+}
+
+#Objectifs a{
+    margin: 3%;
+}
+
