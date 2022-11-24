@@ -6,59 +6,61 @@ h1{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 128px;
+    font-size: 6.7vw;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 1vh;
     color: #DADEE3;
 }
+
 /*footer*/
 footer{
-   margin-top: 43px;
+   margin-top: 4vh;
    display: flex;
    justify-content: space-between;
 }
 
 footer hr{
-    width: 185px;
+    width: 9.6vw;
     height: 0px;
     border : 1px solid #FFFFFF;
     order : 2;
     margin-top: 0px;
-    margin-bottom: 130px;
-    margin-left : 10px;
+    margin-bottom: 12vh;
+    margin-left : -10vw;
 }
 
 footer p {
     color: #FFFFFF;
     order : 1;
-    margin-left: 160px;
-    margin-top: 56px;  
+    margin-left: 8.33vw;
+    margin-top: 5.2vh;
 }
 
 #btn-contact{
     background: #E86C00;
     color : #FFFFFF;
     order : 3;
-    margin-right: 60px;
-    margin-top: 43px;
-    max-height: 50px;
+    margin-right: 3.1vw;
+    margin-top: 3.9vh;
+    height: 4vh;
+    min-height: 35px;
+    line-height: 0;
 }
 /*user infos*/
 #user-infos{
     background-color: #625D52;
-    width: 229px;
-    height: 149px;
+    padding : 1vh 1vw; 
     position : absolute;
     right : 0;
     top : 0;
     border-radius : 0 0 0 15px;
     color: #EBEEF2;
     text-align: center;
-    padding-top : 12px;
+    padding-top : 1vh;
 }
 
 #profile_picture{
-    height : 40px;
+    height : 3.2vh;
     border-radius: 20px;
 }
 
@@ -66,34 +68,38 @@ footer p {
     font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 600;
-    font-size: 13px;
-    line-height: 20px;
+    font-size: 0.7vw;
+    line-height: 2.5vh;
 }
 
 #username{
     font-family: 'Source Sans Pro'; 
     font-style: normal;
     font-weight: 600;
-    font-size: 13px;
-    line-height: 20px;
-    margin-left : 10px;
+    font-size: 0.7vw;
+    line-height: 1.8vh;
+    margin-left : 0.5vw;
 }
 
 .fa-bell-o{
     color : #EBEEF2;
+    line-height: 1.8vh;
+    font-size: 0.9vw;
 }
 
 #parametres{
     font-family: 'Source Sans Pro'; 
     font-style: normal;
     font-weight: 800;
-    font-size: 14px;
-    line-height: 20px; 
+    line-height: 1.8vh;
+    font-size: 0.9vw;
     color : #A5ABB3;
 }
 
 .fa-gear{
     color : #A5ABB3;
+    line-height: 1.8vh;
+    font-size: 0.9vw;
 }
 
 .progress-bar{
@@ -102,33 +108,35 @@ footer p {
 .progress{
     border-radius: 0px;
     background-color: #885221;
-    margin-left : 45px;
-    margin-right : 45px;
-    height : 10px;
+    margin-left : 2.3vw;
+    margin-right : 2.3vw;
+    height : 0.9vh;
 }
 
 #niveau{
     font-family: 'Source Sans Pro'; 
     font-style: normal;
     font-weight: 800;
-    font-size: 14px;
-    line-height: 20px; 
+    font-size: 0.9vw;
+    line-height: 2.5vh; 
 }
+
 
 /*nav*/
 
 nav{
     position : absolute;
     top: calc(50% - 100px);
-    left: 20px;
+    left: 1vw;
     display: flex;
     flex-direction: column;
 }
 
 nav a{
     color: #FFFFFF;
-    margin-top: 20px;
-    font-size: 17px;
+    margin-top: 1.8vh;
+    font-size: 0.9vw;
+    flex : 1;
 }
 
 nav a:hover{
@@ -137,11 +145,11 @@ nav a:hover{
 
 nav hr{
     position : absolute;
-    width : 3px;
-    height : 17px;
+    width : 2px;
+    height : 0.9vw;
     background-color: #E86C00;
-    left : -12px;
-    top : 41px;
+    left : -0.5vw;
+    top : 3.8vh;
     border : none;
     opacity: .75;
  }
@@ -153,12 +161,12 @@ nav hr{
  nav #separator{
     position : absolute;
     width : 1px;
-    height : 140px;
+    height : 13vh;
     background-color: #FFFFFF;
-    left : 32px;
-    top : calc(50% - 60px);
+    left : 1.6vw;
+    top : calc(50% - 6.5vh);
  }
 
  #subpage{
-    margin-left: calc(50% - 627px);
+    margin-left: calc(50% - 32.6vw);
  }
