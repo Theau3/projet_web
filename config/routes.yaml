@@ -9,3 +9,7 @@ HomeController:
 ObjectifsController:
     path : /objectifs
     controller: App\Controller\ObjectifsController::objectifs
+
+TaskController_new:
+    path : /task/new
+    controller: App\Controller\TaskController::new #on appelle la fonction créer
