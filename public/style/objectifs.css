@@ -1,19 +1,18 @@
 #BodyObjectifs{
     background-color: #534F47;
     width: 65%;
-    height : 70%;
+    height : 65%;
     border-radius: 15px;
     display : flex;
     flex-direction: column;
 }
 
 #HeaderObjectifs{
-    flex:1;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    gap : 25%;
-    margin-top: 4%;
+    justify-content: space-around;
+    margin-top: 6%;
+    margin-bottom: 6%;
 }
 
 #HeaderObjectifs a{
@@ -24,9 +23,12 @@
     text-decoration-thickness: 3px;
 }
 
-#BoutonAjout{
-    margin-right: 3%;
-    margin-top: -1%;
+#btn-ajout{
+    background: #E86C00;
+    font-size:large;
+    font-family: 'poppins';
+    color : white;
+    line-height: 0;
 }
 
 #non_selected{
@@ -37,11 +39,12 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     overflow-y: scroll;
+    margin: 0 5%;
 }
 
 #Objectifs a{
-    margin: 3%;
+    margin-bottom: 7%;
 }
 

@@ -4,27 +4,23 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     {% endblock %}
-    <body>
-        {% block body %}
-        <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
-            <div id="BodyObjectifs">
-
-                <div id="HeaderObjectifs">
-                    <a href="#">Catégories</a>
-                    <a href="#" id = "non_selected">Tous</a>
-                    <a href="#" id="BoutonAjout"><img src="{{asset('IMG/Button.png')}}" alt ="bouton ajout"></a>
-                </div>
-
-                <div id="Objectifs">
-                    <a href="#" id = "favorites"><img src="{{asset('IMG/favorites.png')}}" alt ="catégorie favoris"></a>
-                    <a href="#" id = "books"><img src="{{asset('IMG/books.png')}}" alt ="catégorie lecture"></a>
-                    <a href="#" id = "studies"><img src="{{asset('IMG/studies.png')}}" alt ="catégorie études"></a>
-                    <a href="#" id = "electronics"><img src="{{asset('IMG/electronics.png')}}" alt ="catégorie électronique"></a>
-                    <a href="#" id = "sport"><img src="{{asset('IMG/sport.png')}}" alt ="catégorie sport"></a>
-                    <a href="#" id = "programming"><img src="{{asset('IMG/programmation.png')}}" alt ="catégorie programmation"></a>
-                </div>
-
+    {% block body %}
+    <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
+        <div id="BodyObjectifs">
+            <div id="HeaderObjectifs">
+                <a href="#">Catégories</a>
+                <a href="#" id = "non_selected">Tous</a>
+                <button type="button" class="btn" id="btn-ajout">Nouvel Objectif</button>
             </div>
-        {% endblock %}
-    </body>
+
+            <div id="Objectifs">
+                <a href="#" id = "favorites"><img src="{{asset('catégories/favorites.png')}}" alt ="catégorie favoris"></a>
+                <a href="#" id = "books"><img src="{{asset('catégories/books.png')}}" alt ="catégorie lecture"></a>
+                <a href="#" id = "studies"><img src="{{asset('catégories/studies.png')}}" alt ="catégorie études"></a>
+                <a href="#" id = "electronics"><img src="{{asset('catégories/electronics.png')}}" alt ="catégorie électronique"></a>
+                <a href="#" id = "sport"><img src="{{asset('catégories/sport.png')}}" alt ="catégorie sport"></a>
+                <a href="#" id = "programming"><img src="{{asset('catégories/programmation.png')}}" alt ="catégorie programmation"></a>
+            </div>
+        </div>
+    {% endblock %}
 </html>
