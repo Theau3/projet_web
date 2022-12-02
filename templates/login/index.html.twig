@@ -1,20 +1,28 @@
 {# templates/login/index.html.twig #}
 {% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('style/login.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+{% endblock %}
 
+{% block title %}Connexion{% endblock %}
 {% block body %}
     {% if error %}
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
-
+    <h1>Connexion</h1>
+    <p>Connectez vous et commencez à suivre vos objectifs !</p>
     <form action="{{ path('app_login') }}" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}">
+        <input class="form-control" type="text" placeholder="Nom d'utlisateur" id="username" name="_username" value="{{ last_username }}">
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password">
-
+        <input class="form-control" type="password" placeholder="Mot de passe" id="password" name="_password">
+        <a href="#">Mot de passe oublié ?</a>
         <input type="hidden" name="_target_path" value="/home">
 
-        <button type="submit">login</button>
+        <button id="connexion" class="btn btn-primary" type="submit">Connexion</button>
+        <a id="register" class="btn btn-secondary" href="/register">Créer un nouveau compte</a>
     </form>
+    
 {% endblock %}

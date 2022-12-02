@@ -4,14 +4,32 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Entity\User;
+use Doctrine\Persistence\ManagerRegistry;
+use SebastianBergmann\Environment\Console;
+use Symfony\Component\Security\Core\Security;
 
 
 class HomeController extends AbstractController
 {
-    public function home(): Response
+    private $security;
+
+    public function __construct(Security $security)
     {
-        $profile_picture = "pp1.png";
-        $username = "testUsername";
+        // Avoid calling getUser() in the constructor: auth may not
+        // be complete yet. Instead, store the entire Security object.
+        $this->security = $security;
+    }
+    
+    public function home(ManagerRegistry $doctrine): Response
+    {
+        //$repository = $doctrine->getRepository(User::class);
+        //$username = $this->getUser()->getUserIdentifier();
+        //$user = $repository->findOneBy(['username' => $username]);
+        $user = $this->security->getUser();
+        $username = $user->getUsername();
+
+        $profile_picture = $user->getPp();  
         $title = "débutant";
         $level_percentage = 75;
         $level = 2;

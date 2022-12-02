@@ -170,3 +170,15 @@ nav hr{
  #subpage{
     margin-left: calc(50% - 32.6vw);
  }
+
+ .fa-right-from-bracket{
+    color : rgba(255, 0, 0, 0.87);
+    position: absolute;
+    top : 1vh;
+    left : 1vh;
+    font-size: 1.7vw;
+ }
+
+ #logout{
+    text-decoration: none;
+ }

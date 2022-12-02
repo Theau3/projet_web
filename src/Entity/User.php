@@ -29,6 +29,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+    #[ORM\Column]
+    private ?int $progression = 0;
+
+    #[ORM\Column(length: 180, unique: false)]
+    private ?string $pp = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -93,9 +99,32 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @see UserInterface
      */
+    
     public function eraseCredentials()
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function getProgression(): ?int
+    {
+        return $this->progression;
+    }
+
+    public function getPp(): ?string
+    {
+        return $this->pp;
+    }
+
+    public function setProgression(int $progression): self
+    {
+        $this->progression = $progression;
+        return $this;
+    }
+
+    public function setPp(string $pp): self
+    {
+        $this->pp = $pp;
+        return $this;
     }
 }
