@@ -1,0 +1,59 @@
+<html lang="fr">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('style/friends.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    {% endblock %}
+    <body>
+        {% block body %}
+            <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
+            <div id="bodyfriends">
+
+                <div id="Headerfriends">
+                    <h2>Amis</h2>
+                    <button type="button" class="btn" id="btn"><i class="fa-solid fa-user-plus" style="color: #E86C00;background-color:#786b6b;"></i></button>
+                </div>
+            
+                <div id="Friends">
+                        <div id="one">
+                        <ul>
+                            <li class =liste>        
+                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
+                                <div id="DF">
+                                Theau </br>
+                                Test
+                                </div>
+                            </li>
+                            <li class =liste>        
+                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
+                                <div id="DF">
+                                Theau </br>
+                                Test
+                                </div>
+                            </li>
+                            <li class =liste>        
+                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
+                                <div id="DF">
+                                Theau </br>
+                                Test
+                                </div>
+                            </li>
+                            <li class =liste>        
+                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
+                                <div id="DF">
+                                Theau </br>
+                                Test
+                                </div>
+                            </li>
+                        </ul>
+                        </div>
+                        <div id="two">
+                            <button type="button" class="btn1" id="btn1"><i class="fa-solid fa-plus" style="color: #E86C00;"></i></button>
+                        </div>
+                </div>
+
+            </div>
+
+        {% endblock %}
+    </body>
+</html>

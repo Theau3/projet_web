@@ -13,3 +13,8 @@ ObjectifsController:
 TaskController_new:
     path : /task/new
     controller: App\Controller\TaskController::new #on appelle la fonction créer
+
+    
+FriendsController:
+    path : /friends
+    controller: App\Controller\FriendsController::friends
