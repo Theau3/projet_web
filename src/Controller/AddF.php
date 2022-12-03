@@ -8,8 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class FriendsController extends AbstractController
 {
-    public function friends(): Response
+    public function Addfriends(): Response
     {
-        return $this->render('Amis/friends.html.twig');
+        return $this->render('Amis/Addfriends.html.twig');
     }
 }
