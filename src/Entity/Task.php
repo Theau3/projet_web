@@ -4,24 +4,47 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
+
+
+#[ORM\Entity(repositoryClass: TaskRepository::class)]
 class Task
 {
-    #[Assert\NotBlank]
-    public $Titre;
-    #[Assert\NotBlank]
-    public $Description;
-    #[Assert\NotBlank]
-    #[Assert\Type(\DateTime::class)]
-    protected $dueDate;
+    #[ORM\Id]
+    #[ORM\GeneratedValue(strategy:"IDENTITY")]
+    #[ORM\Column]
+    private ?int $id = null;
 
-    public function getTask(): string
+    #[Assert\NotBlank]
+    #[ORM\Column(length: 255)]
+    public ?string $Titre = null;
+
+    #[Assert\NotBlank]
+    #[ORM\Column]
+    public ?string $Description = null;
+
+    #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'tasks')]
+    #[Assert\Valid]
+    protected $category;
+
+    #[ORM\Column]
+    private ?bool $Perso = null;
+    
+
+
+    public function getIdTask(): ?int
     {
-        return $this->task; //On retourne la tâche associée à l'objet courant
+        return $this->id;
     }
 
-    public function setTask(string $Titre): void
+    public function getTitre(): string
+    {
+        return $this->Titre; //On retourne la tâche associée à l'objet courant
+    }
+
+    public function setTitre(string $Titre): void
     {
         $this->Titre = $Titre; //la tâche de l'objet courant associé prend la valeur de tâche définie.
     }
@@ -36,13 +59,25 @@ class Task
         $this->Description = $Description;
     }
 
-    public function getDueDate(): ?\DateTime
+    public function getPerso(): bool
     {
-        return $this->dueDate;
+        return $this->Perso;
     }
 
-    public function setDueDate(?\DateTime $dueDate): void
+    public function setPerso(bool $Perso): void
     {
-        $this->dueDate = $dueDate;
+        $this->Perso = $Perso;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
     }
 }

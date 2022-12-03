@@ -7,11 +7,15 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
+
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -127,4 +131,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->pp = $pp;
         return $this;
     }
+
+    //Mapping de User à tâche perso
+    #[ORM\OneToMany(targetEntity: TaskPerso::class, mappedBy: 'user')]
+    private $tasksPerso;
+
+    public function __construct()
+    {
+        $this->tasksPerso = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getTasksPerso(): Collection
+    {
+        return $this->tasksPerso;
+    }
+
+
+
 }
