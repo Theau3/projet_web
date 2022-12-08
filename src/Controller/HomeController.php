@@ -6,8 +6,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
-use SebastianBergmann\Environment\Console;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class HomeController extends AbstractController
@@ -20,8 +20,8 @@ class HomeController extends AbstractController
         // be complete yet. Instead, store the entire Security object.
         $this->security = $security;
     }
-    
-    public function home(ManagerRegistry $doctrine): Response
+    #[Route('/home/{page}', name: 'app_home')]
+    public function home(string $page,ManagerRegistry $doctrine): Response
     {
         //$repository = $doctrine->getRepository(User::class);
         //$username = $this->getUser()->getUserIdentifier();
@@ -38,7 +38,8 @@ class HomeController extends AbstractController
             'username' => $username,
             'title' => $title,
             'level_percentage' => $level_percentage,
-            'level' => $level
+            'level' => $level,
+            'page' => $page
         ]);
     }
 }

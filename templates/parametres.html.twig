@@ -1,0 +1,61 @@
+<html lang="fr">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('style/parametres.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    {% endblock %}
+    {% block body %}
+        <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
+        <div id='HtmlParametres'>
+            <h1 id="h1Parametres">Paramètres</h1>
+            <hr>
+            <div id="HeaderParametres">
+                    <a href="?tab=NomUtilisateur">Nom d'utilisateur</a>
+                    <a href="?tab=PhotoDeProfil">Photo de profil</a>
+                    <a href="?tab=MotDePasse">Mot de passe</a>
+            </div>
+            <div id="BodyParametres">
+                {% if  'PhotoDeProfil' in url %} 
+                    <hr id="PhotoDeProfil">
+                    {{ form(formProfilePicture) }}
+                    {% if 'form=error' in url %}
+                        <div class="alert alert-danger" role="alert">
+                            Photo de profil invalide
+                        </div>
+                    {% endif %}
+                    {% if 'form=ok' in url %}
+                        <div class="alert alert-success" role="alert">
+                            Photo de profil mise à jour avec succès
+                        </div>
+                    {% endif %}
+                {% elseif  'MotDePasse' in url %}
+                    <hr id="MotDePasse">
+                    {{ form(formPassword) }}
+                    {% if 'form=error' in url %}
+                        <div class="alert alert-danger" role="alert">
+                            Mot de passe invalide 
+                        </div>
+                    {% endif %}
+                    {% if 'form=ok' in url %}
+                        <div class="alert alert-success" role="alert">
+                            Mot de passe mis à jour avec succès
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <hr id="NomUtilisateur">
+                    {{ form(formUsername) }}
+                    {% if 'form=error' in url %}
+                        <div class="alert alert-danger" role="alert">
+                            Nom d'utilisateur invalide 
+                        </div>
+                    {% endif %}
+                    {% if 'form=ok' in url %}
+                        <div class="alert alert-success" role="alert">
+                            Nom d'utilisateur mis à jour avec succès
+                        </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    {% endblock %}
+</html>

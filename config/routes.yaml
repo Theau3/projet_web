@@ -2,10 +2,6 @@ controllers:
     resource: ../src/Controller/
     type: attribute
 
-HomeController:
-    path : /home
-    controller: App\Controller\HomeController::home
-
 ObjectifsController:
     path : /objectifs
     controller: App\Controller\ObjectifsController::objectifs

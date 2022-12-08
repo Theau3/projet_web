@@ -11,7 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
+#[UniqueEntity(fields: ['username'], message: 'Il y a déja un compte avec ce nom d\'utilisateur veuillez en choisir un autre')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
 
@@ -37,7 +37,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $progression = 0;
 
     #[ORM\Column(length: 180, unique: false)]
-    private ?string $pp = null;
+    private ?string $pp = 'pp1.png';
 
     public function getId(): ?int
     {
