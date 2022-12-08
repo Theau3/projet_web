@@ -1,0 +1,150 @@
+body{
+    background-color: #31302E;
+}
+
+h1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 5vw;
+    text-align: center;
+    margin-top: 11vh;
+    color: #DADEE3;
+}
+
+h3{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3vw;
+    text-align: center;
+    margin-top: 2vh;
+    color: #DADEE3;
+}
+
+p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25vw;
+    text-align: center;
+    color: #DADEE3;
+    margin-bottom: 3vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width : 40vw;
+    margin : 0 auto;
+}
+
+label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1vw;
+    text-align: left;
+    margin : 0 auto;
+    color: #DADEE3;
+    margin-bottom: 6.6vh;
+}
+
+legend{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1vw;
+    margin : 0 auto;
+    color: #DADEE3;
+}
+
+
+#task_perso_Enregistrer{
+    background-color: #E86C00;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1vw;
+    width: auto;
+}
+
+
+.form-control{
+    background-color : #534F47;
+    color : #FFFFFF;
+    border: none;
+    margin-top: 0.7vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    padding: 1.48vh 2vh;
+    height: 5.2vh;
+}
+
+.input-group{
+    height: 3vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+}
+
+.form-select{
+    color: white;
+    background-color: #534F47;
+    font-size: 1vw;
+}
+
+.form-select:focus{
+    box-shadow: 0 0 0 .2rem #885221;
+}
+
+
+.form-control:focus{
+    background-color : #534F47;
+    color : #FFFFFF;
+    border: none;
+    margin-top: 0.7vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    padding: 1.48vh 2vh;
+    box-shadow: 0 0 0 .2rem #885221;
+}
+
+.form-control::placeholder{
+    color : #ffffff70;
+    opacity : 1;
+}
+
+#task_perso_dateDebut, #task_perso_dueDate{
+    background-color: #31302E;
+    padding: 0;
+    margin: 1.5vh 1.5;
+}
+
+.taskPerso{
+    color : #FFFFFF;
+    border: none;
+    margin-top: 0.7vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1vw;
+    padding-bottom: 1.48vh;
+}
+
+.btn{
+    align-items: center;
+    width : 40vw;
+}
+
+#ChoixFrequence{
+    display: flex;
+    flex-direction: row;
+
+}

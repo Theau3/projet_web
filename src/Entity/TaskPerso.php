@@ -7,6 +7,7 @@ namespace App\Entity;
 use DateTime;
 use DateTimeZone;
 use Doctrine\DBAL\Types\DateType;
+use Doctrine\DBAL\Types\Types;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
 class TaskPerso
 {
     #[ORM\Id]//clé primaire
-    #[ORM\ManyToOne(targetEntity: Task::class, inversedBy: 'tasksPerso')]
+    #[ORM\ManyToOne(targetEntity: Task::class)]
     #[Assert\Valid]
     protected $Task; //On récupère la classe Task
 
@@ -24,8 +25,7 @@ class TaskPerso
     #[Assert\Valid]
     protected $user;
 
-    #[ORM\Column]
-    private ?int $avancement = null;
+
     #[ORM\Column]
     private ?int $repetition = null;
     #[Assert\Type(\DateTime::class)]
@@ -54,16 +54,6 @@ class TaskPerso
     public function setRepetition(int $repetition): void
     {
         $this->repetition = $repetition;
-    }
-
-    public function getAvancement(): int
-    {
-        return $this->avancement;
-    }
-
-    public function setAvancement(int $avancement): void
-    {
-        $this->avancement = $avancement;
     }
 
     public function getDateDebut(): ?\DateTime

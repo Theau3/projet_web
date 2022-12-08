@@ -142,11 +142,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection|Product[]
+     * @return Collection|TaskPerso[]
      */
     public function getTasksPerso(): Collection
     {
         return $this->tasksPerso;
+    }
+
+    public function addTasksPerso(TaskPerso $tasksPerso): self
+    {
+        if (!$this->tasksPerso->contains($tasksPerso)) {
+            $this->tasksPerso->add($tasksPerso);
+            $tasksPerso->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTasksPerso(TaskPerso $tasksPerso): self
+    {
+        if ($this->tasksPerso->removeElement($tasksPerso)) {
+            // set the owning side to null (unless already changed)
+            if ($tasksPerso->getUser() === $this) {
+                $tasksPerso->setUser(null);
+            }
+        }
+
+        return $this;
     }
 
 

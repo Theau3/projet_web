@@ -7,6 +7,8 @@ namespace App\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 
 #[ORM\Entity(repositoryClass: TaskRepository::class)]
@@ -30,9 +32,40 @@ class Task
     protected $category;
 
     #[ORM\Column]
-    private ?bool $Perso = null;
-    
+    private ?int $avancement = null;
 
+    #[ORM\Column]
+    private ?bool $Perso = null;
+
+    private ?int $ChoixTemps = null;
+
+    private ?int $NombreFois = null;
+
+
+
+    public function getChoixTemps(): ?int
+    {
+        return $this->ChoixTemps;
+    }
+
+    public function setChoixTemps(int $ChoixTemps): self
+    {
+        $this->ChoixTemps = $ChoixTemps;
+
+        return $this;
+    }
+
+    public function getNombreFois(): ?int
+    {
+        return $this->NombreFois;
+    }
+
+    public function setNombreFois(int $NombreFois): self
+    {
+        $this->NombreFois = $NombreFois;
+
+        return $this;
+    }
 
     public function getIdTask(): ?int
     {
@@ -69,6 +102,16 @@ class Task
         $this->Perso = $Perso;
     }
 
+    public function getAvancement(): int
+    {
+        return $this->avancement;
+    }
+
+    public function setAvancement(int $avancement): void
+    {
+        $this->avancement = $avancement;
+    }
+
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -79,5 +122,15 @@ class Task
         $this->category = $category;
 
         return $this;
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function isPerso(): ?bool
+    {
+        return $this->Perso;
     }
 }

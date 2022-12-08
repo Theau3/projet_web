@@ -1,2 +1,47 @@
 {# templates/task/new.html.twig #}
-{{ form(form) }}
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('style/task_new.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block title %}Informations sur la tâche{% endblock %}
+{% block body %}
+    <h1>Création de votre objectif</h1>
+    <p>Créez votre objectif dès maintenant !</p>
+    <form action="{{ path('task_perso') }}" method="post">
+    <div class="task">
+        {{ form_row(task_perso.Task.Titre,{
+            "required": true,
+        }
+        ) }}
+        {{ form_row(task_perso.Task.Description) }}
+        <div class="category">
+            {{ form_row(task_perso.Task.category, { 'attr': {'class': 'form-control'} }) }}
+        </div>
+        <div class="ChoixFrequence">
+        {{ form_label(task_perso.Task.NombreFois, 'Nombre de fois (laissez tel quel si vous ne voulez pas lui ajouter de fréquence):', {'label_attr': {'class': 'foo'}}) }}
+        {{ form_widget(task_perso.Task.NombreFois) }}
+        {{ form_label(task_perso.Task.ChoixTemps, 'Par : ', {'label_attr': {'class': 'foo'}}) }}
+        {{ form_widget(task_perso.Task.ChoixTemps) }}
+        </div>
+    </div>
+
+    <div class ="taskPerso">
+    {{ form_label(task_perso.dateDebut, 'Choisissez la date à laquelle vous souhaitez démarrer :', {'label_attr': {'class': 'foo'}}) }}
+    {{ form_widget(task_perso.dateDebut, { 'attr': {'class': 'form-control'} }) }}
+    {{ form_label(task_perso.dateDebut, 'Choisissez la date à laquelle vous souhaitez finir :', {'label_attr': {'class': 'foo'}}) }}
+    {{ form_widget(task_perso.dueDate, { 'attr': {'class': 'form-control'} }) }}
+    
+        <div class ="btn">
+            {{ form_row(task_perso.Enregistrer) }}
+        </div>
+    </div>
+
+    {{ form_rest(task_perso) }}
+    </form>
+    
+{% endblock %}
+

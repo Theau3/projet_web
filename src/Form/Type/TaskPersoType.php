@@ -18,12 +18,8 @@ class TaskPersoType extends AbstractType
             'label' => 'Informations sur la tâche',
         ]); //On ajoute la tâche en elle même
         $builder
-            ->add('dateDebut', DateType::class, [
-                'label' => 'Quand souhaitez-vous commencer ?',
-            ])
-            ->add('dueDate', DateType::class, [
-                'label' => 'Quand souhaitez-vous finir ?'
-            ])
+            ->add('dateDebut', DateType::class)
+            ->add('dueDate', DateType::class)
             ->add('Enregistrer', SubmitType::class)
             ;
         
