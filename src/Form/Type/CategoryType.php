@@ -1,6 +1,6 @@
 <?php 
 // src/Form/CategoryType.php
-namespace App\Form;
+namespace App\Form\Type;
 
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;

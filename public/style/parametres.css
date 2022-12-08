@@ -1,0 +1,115 @@
+#HtmlParametres{
+    background-color: #534F47;
+    width: 65%;
+    height : 65%;
+    border-radius: 15px;
+}
+
+#h1Parametres{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 4.5vw;
+    text-align: center;
+    color: #DADEE3;
+}
+
+hr{
+    width: 9.6vw;
+    height: 0px;
+    border: 1px solid #FFFFFF;
+    margin-left: 40.4%;
+}
+
+#HeaderParametres{
+    display: flex;
+    justify-content: space-around;
+}
+
+#HeaderParametres a{
+    font-size:x-large;
+    font-family: 'poppins';
+    color : white;
+    text-decoration: none;
+    text-decoration-color: white;
+    text-decoration-thickness: 3px;
+}
+
+#BodyParametres hr{
+    width: 4.8vw;
+    height: 0px;
+    margin-top: 0px;
+    border: 2px solid #FFFFFF;
+}
+
+#NomUtilisateur{
+    margin-left: 13%;
+}
+
+#PhotoDeProfil{
+    margin-left: 47%;
+}
+
+#MotDePasse{
+    margin-left: 80%;
+}
+
+label,legend{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25vw;
+    color: #DADEE3;
+    border-radius: 20px;
+}
+
+.form-control{
+    width : 25vw;
+}
+
+#new_username,#new_password{
+    margin: 6vh 14vw;
+}
+
+.alert{
+    width : 25vw;
+    margin: 0 14vw;
+}
+
+#new_username_Valider,#new_password_Valider,#new_profile_picture_Valider{
+    background-color: #E86C00;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.72vw;
+    margin-left : 21vw;
+}
+
+#new_profile_picture_Valider{
+    margin-left: 25vw;
+}
+
+#new_profile_picture_pp{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#BodyParametres img{
+    margin-top: 1vh;
+    height: 15vh;
+    border-radius: 20px;
+}
+
+input[type="radio"]{
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+label img{
+    margin : 0.7vh;
+}
+
+input[type="radio"]:checked + label{
+    background-color: #E86C00;
+}

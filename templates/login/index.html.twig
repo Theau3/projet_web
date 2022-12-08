@@ -9,9 +9,6 @@
 
 {% block title %}Connexion{% endblock %}
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
     <h1>Connexion</h1>
     <p>Connectez vous et commencez à suivre vos objectifs !</p>
     <form action="{{ path('app_login') }}" method="post">
@@ -19,10 +16,15 @@
 
         <input class="form-control" type="password" placeholder="Mot de passe" id="password" name="_password">
         <a href="#">Mot de passe oublié ?</a>
-        <input type="hidden" name="_target_path" value="/home">
+        <input type="hidden" name="_target_path" value="/home/objectifs">
 
         <button id="connexion" class="btn btn-primary" type="submit">Connexion</button>
         <a id="register" class="btn btn-secondary" href="/register">Créer un nouveau compte</a>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                Identifiants invalides
+            </div>
+        {% endif %}
     </form>
     
 {% endblock %}
