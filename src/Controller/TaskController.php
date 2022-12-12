@@ -27,7 +27,7 @@ class TaskController extends AbstractController
     }
 
 
-    #[Route('/TaskPerso', name: 'task_perso')]
+    #[Route('/task/new', name: 'task_perso')]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $taskPerso = new TaskPerso();
@@ -68,7 +68,7 @@ class TaskController extends AbstractController
             $entityManager->persist($task);
             $entityManager->persist($category);
             $entityManager->flush();
-            return $this->redirectToRoute('HomeController');
+            return $this->redirect('/home/objectifs?form=ok');;
         }
 
         return $this->render('task/new.html.twig', [

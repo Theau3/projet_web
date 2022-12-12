@@ -8,19 +8,33 @@
     <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
         <div id="BodyObjectifs">
             <div id="HeaderObjectifs">
-                <a href="#">Catégories</a>
-                <a href="#" id = "non_selected">Tous</a>
-                <a id="btn-ajout" href="/task/new" class="btn btn-primary">Nouvel Objectif</a>
+                {% if 'voir=tous' in url %}
+                    <a href="?voir=cat" id = "non_selected">Catégories</a>
+                    <a href="?voir=tous">Tous</a>
+                    <a id="btn-ajout" href="/task/new" class="btn btn-primary">Nouvel Objectif</a>
+                {% else %}
+                    <a href="?voir=cat">Catégories</a>
+                    <a href="?voir=tous" id = "non_selected">Tous</a>
+                    <a id="btn-ajout" href="/task/new" class="btn btn-primary">Nouvel Objectif</a>
+                {% endif %}
             </div>
-
-            <div id="Objectifs">
-                <a href="#" id = "favorites"><img src="{{asset('catégories/favorites.png')}}" alt ="catégorie favoris"></a>
-                <a href="#" id = "books"><img src="{{asset('catégories/books.png')}}" alt ="catégorie lecture"></a>
-                <a href="#" id = "studies"><img src="{{asset('catégories/studies.png')}}" alt ="catégorie études"></a>
-                <a href="#" id = "electronics"><img src="{{asset('catégories/electronics.png')}}" alt ="catégorie électronique"></a>
-                <a href="#" id = "sport"><img src="{{asset('catégories/sport.png')}}" alt ="catégorie sport"></a>
-                <a href="#" id = "programming"><img src="{{asset('catégories/programmation.png')}}" alt ="catégorie programmation"></a>
-            </div>
+            {% if 'form=ok' in url %}
+                <div class="alert alert-success" role="alert">
+                    Objectif créé avec succès
+                </div>
+            {% endif %}
+            {% if 'voir=tous' in url %}
+                <p>test</p>
+            {% else %}
+                <div id="Objectifs">
+                    <a href="?cat=favoris" id = "favorites"><img src="{{asset('catégories/favorites.png')}}" alt ="catégorie favoris"></a>
+                    <a href="?cat=lecture" id = "books"><img src="{{asset('catégories/books.png')}}" alt ="catégorie lecture"></a>
+                    <a href="?cat=etudes" id = "studies"><img src="{{asset('catégories/studies.png')}}" alt ="catégorie études"></a>
+                    <a href="cat=elec" id = "electronics"><img src="{{asset('catégories/electronics.png')}}" alt ="catégorie électronique"></a>
+                    <a href="?cat=sport" id = "sport"><img src="{{asset('catégories/sport.png')}}" alt ="catégorie sport"></a>
+                    <a href="?cat=prog" id = "programming"><img src="{{asset('catégories/programmation.png')}}" alt ="catégorie programmation"></a>
+                </div>
+            {% endif %}
         </div>
     {% endblock %}
 </html>
