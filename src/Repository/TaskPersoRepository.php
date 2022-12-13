@@ -18,6 +18,24 @@ class TaskPersoRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, TaskPerso::class);
     }
+    
+    public function save(TaskPerso $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(TaskPerso $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
 
     // /**
     //  * @return TaskPerso[] Returns an array of TaskPerso objects

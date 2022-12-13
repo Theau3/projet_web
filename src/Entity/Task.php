@@ -4,7 +4,7 @@
 
 namespace App\Entity;
 
-
+use App\Repository\TaskRepository;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -133,4 +133,10 @@ class Task
     {
         return $this->Perso;
     }
+
+    public function __toString()
+    {
+        return $this->id;
+    }
+
 }

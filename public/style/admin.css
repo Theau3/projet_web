@@ -1,0 +1,32 @@
+body {
+    background-color: #31302E;
+}
+
+h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 6.7vw;
+    text-align: center;
+    margin-top: 1vh;
+    color: #DADEE3;
+}
+
+#boutons{
+    display: flex;
+    flex-direction: column;
+    width : 70vw;
+    margin-left: 15vw;
+    margin-top: 23vh;
+}
+
+.btn{
+    margin-bottom: 1vh;
+    font-size: 2vw;
+}
+
+#quitter{
+    font-size: 1vw;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+}

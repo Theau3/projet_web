@@ -1,0 +1,34 @@
+body {
+    background-color: #31302E;
+}
+
+h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 6.7vw;
+    text-align: center;
+    margin-top: 1vh;
+    color: #DADEE3;
+}
+
+th,td{
+    font-family: 'Source Sans Pro';
+    color: #DADEE3;
+}
+
+#new-task{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-new-task{
+    margin-right: 1vw;
+}
+
+.table{
+    width: 70vw;
+    margin-left: 15vw;
+}
+
+

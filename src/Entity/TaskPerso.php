@@ -4,6 +4,8 @@
 
 namespace App\Entity;
 
+use App\Repository\TaskRepository;
+use App\Repository\TaskPersoRepository;
 use DateTime;
 use DateTimeZone;
 use Doctrine\DBAL\Types\DateType;
@@ -88,5 +90,14 @@ class TaskPerso
         $this->user = $user;
 
         return $this;
+    }
+
+    public function gettask_id() 
+    {
+        return $this->Task->getId();
+    }
+
+    public function getuser_id(){
+        return $this->user->getId();
     }
 }

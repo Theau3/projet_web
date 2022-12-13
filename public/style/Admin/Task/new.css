@@ -1,0 +1,29 @@
+body {
+    background-color: #31302E;
+}
+
+h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 6.7vw;
+    text-align: center;
+    margin-top: 1vh;
+    color: #DADEE3;
+}
+
+label{
+    font-family: 'Source Sans Pro';
+    color: #DADEE3;
+}
+
+form[name = "task"]{
+    width : 70vw;
+    margin-left : 15vw;
+}
+
+#retour-liste{
+    margin-left: 15vw;
+    margin-top: 1vh;
+}
+

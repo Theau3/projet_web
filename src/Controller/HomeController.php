@@ -28,6 +28,7 @@ class HomeController extends AbstractController
         //$user = $repository->findOneBy(['username' => $username]);
         $user = $this->security->getUser();
         $username = $user->getUsername();
+        $roles = $user->getRoles();
 
         $profile_picture = $user->getPp();  
         $title = "débutant";
@@ -39,7 +40,8 @@ class HomeController extends AbstractController
             'title' => $title,
             'level_percentage' => $level_percentage,
             'level' => $level,
-            'page' => $page
+            'page' => $page,
+            'roles' => $roles,
         ]);
     }
 }
