@@ -23,6 +23,9 @@
                 <a href="navbar.html"><i class="fa-solid fa-user-group"></i></a>
                 <a href="navbar.html"><i class="fa-solid fa-envelope"></i></a>
                 <a href="navbar.html"><i class="fa-solid fa-message"></i></a>
+                {% if "ROLE_ADMIN" in roles %}
+                    <a href="/admin"><i class="fa-solid fa-toolbox"></i></a>
+                {% endif %}
                 <span id="separator"></span>
             </nav>
             <div id="user-infos">

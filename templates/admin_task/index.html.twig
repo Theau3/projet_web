@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('style/Admin/Task/index.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+
+{% block title %}Liste des tâches{% endblock %}
+
+{% block body %}
+    <h1>Liste des tâches</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Avancement</th>
+                <th>Perso</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.Titre }}</td>
+                <td>{{ task.Description }}</td>
+                <td>{{ task.avancement }}</td>
+                <td>{{ task.Perso ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_task_show', {'id': task.id}) }}">voir</a>
+                    <a class="btn btn-success" href="{{ path('app_admin_task_edit', {'id': task.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas de tâches à afficher</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div id="new-task">
+        <a class="btn btn-success btn-new-task" href="{{ path('app_admin_task_new') }}">Créer une nouvelle tâche</a>
+    <div>
+{% endblock %}
