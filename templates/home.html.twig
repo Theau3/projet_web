@@ -20,7 +20,7 @@
                 <hr/>
                 <a href="navbar.html"><i class="fa-solid fa-magnifying-glass"></i></a>
                 <a href="navbar.html" id ="selected_icon"><i class="fa-solid fa-house"></i></a>
-                <a href="navbar.html"><i class="fa-solid fa-user-group"></i></a>
+                <a href="/home/friends"><i class="fa-solid fa-user-group"></i></a>
                 <a href="navbar.html"><i class="fa-solid fa-envelope"></i></a>
                 <a href="navbar.html"><i class="fa-solid fa-message"></i></a>
                 <span id="separator"></span>
@@ -47,7 +47,12 @@
                 {% if page == 'objectifs' %}
                     {{ render(controller('App\\Controller\\ObjectifsController::objectifs')) }}
                 {% endif %}
-                
+                {% if page == 'addfriends' %}
+                     {{ render(controller('App\\Controller\\AddFriendsController::addfriends')) }}
+                {% endif %}
+                {% if page == 'friends' %}
+                     {{ render(controller('App\\Controller\\FriendsController::friends')) }}
+                {% endif %}
             </div>
         {% endblock %}
     </body>

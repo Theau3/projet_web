@@ -8,52 +8,25 @@
         {% block body %}
             <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
             <div id="bodyfriends">
-
                 <div id="Headerfriends">
                     <h2>Amis</h2>
-                    <button type="button" class="btn" id="btn"><i class="fa-solid fa-user-plus" style="color: #E86C00;background-color:#786b6b;"></i></button>
+                    <a class="btn" href="/home/addfriends"><i class="fa-solid fa-user-plus" color="#E86C00"></i></a>
                 </div>
             
                 <div id="Friends">
                         <div id="one">
-                        <ul>
-                            <li class =liste>        
-                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
-                                <div id="DF">
-                                Theau </br>
+                        {% for ami in amis %}
+                            <div class="liste">        
+                                <img class="ppfriends" src="{{asset('profile_pictures/' ~ ami.pp ~ '')}}" alt ="profile picture">
+                                <div class="DF">
+                                {{ ami.username }} </br>
                                 Test
                                 </div>
-                            </li>
-                            <li class =liste>        
-                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
-                                <div id="DF">
-                                Theau </br>
-                                Test
-                                </div>
-                            </li>
-                            <li class =liste>        
-                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
-                                <div id="DF">
-                                Theau </br>
-                                Test
-                                </div>
-                            </li>
-                            <li class =liste>        
-                                <img id="pp" src="{{asset('IMG/friends/thx.jpg')}}" alt ="profile picture">
-                                <div id="DF">
-                                Theau </br>
-                                Test
-                                </div>
-                            </li>
-                        </ul>
-                        </div>
-                        <div id="two">
-                            <button type="button" class="btn1" id="btn1"><i class="fa-solid fa-plus" style="color: #E86C00;"></i></button>
+                            </div>
+                        {% endfor %}
                         </div>
                 </div>
-
             </div>
-
         {% endblock %}
     </body>
 </html>

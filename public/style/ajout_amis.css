@@ -1,0 +1,76 @@
+body {
+    background-color: #31302E;
+}
+
+label {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.25vw;
+    text-align: center;
+    color: #DADEE3;
+}
+
+.form-control {
+    background-color: #534F47;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 3.5vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.72vw;
+    padding: 1.48vh 2vh;
+}
+
+.form-control:focus {
+    background-color: #534F47;
+    color: #FFFFFF;
+    border: none;
+    margin-top: 3.5vh;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.72vw;
+    padding: 1.48vh 2vh;
+    box-shadow: 0 0 0 .2rem #885221;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 19vw;
+    margin-left: 28%;
+}
+
+.btn {
+    background-color: #E86C00;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.72vw;
+    padding: 1.2vh 0;
+}
+
+#cherch {
+    background-color: #E86C00;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    color: #DADEE3;
+    font-weight: 400;
+    font-size: 0.72vw;
+    padding: 1.2vh 0;
+}
+
+
+.form-check-input:focus {
+    border-color: #E86C00;
+    box-shadow: 0 0 0 .25rem rgba(232, 108, 0, .25);
+}
+
+.form-check-input:checked {
+    background-color: #E86C00;
+    border-color: #E86C00;
+}

@@ -17,85 +17,58 @@
     gap: 25%;
     color: white;
     margin-top: 4%;
-    margin-left: 14%;
+    margin-left: 50%;
     margin-right: 5%;
 }
 
 #Friends {
-    flex: 5;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
     margin-left: 5%;
+    flex: 5;
 }
 
 #one {
     overflow-y: scroll;
     display: flex;
-    flex-direction: row;
-    flex: 4;
+    max-height: 50vh;
+    flex-direction: column;
     background-color: gray;
     min-height: 5em;
     padding: 1em 4em;
     font: 1em/150% sans-serif;
     position: relative;
     border-radius: 30px;
-    padding-right: 3cm;
-    width: 81%;
+    padding-right: 3vw;
+    width: 49vw;
     margin-bottom: 1%;
 }
 
 .liste {
     display: flex;
     flex-direction: row;
-    margin: 10%;
-
-
+    margin-bottom: 2.5vh;
 }
 
-#two {
-    display: flex;
-    flex: 1;
-    background-color: whitesmoke;
-    padding: 1em 4em;
-    font: 1em/150% sans-serif;
-    position: relative;
-    border-radius: 30px;
-    width: 85%;
-    height: 70%;
-}
-
-
-#pp {
-    display: flex;
+.ppfriends {
     height: 6.2vh;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
-#DF {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
+.DF {
+    margin-left: 1vw;
     margin-top: 1.1%;
     font-size: 115%;
 }
 
 #btn {
-    border-radius: 30px;
-    border: 15px solid #786b6b;
-    background-color: #786b6b;
+    background: #E86C00;
+    color: #FFFFFF;
     order: 3;
-    height: 4vh;
-    min-height: 35px;
+    margin-right: 3.1vw;
+    margin-top: 3.9vh;
+    height: 2vh;
     line-height: 0;
 }
 
-#btn1 {
-    border: 15px;
-    color: #7e5f5f;
-    height: 10vh;
-    width: 20em;
-    min-height: 35px;
-    line-height: 5;
-    margin-left: 40%;
+.fa-solid {
+    color: #E86C00;
 }
