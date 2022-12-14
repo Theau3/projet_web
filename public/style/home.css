@@ -160,7 +160,8 @@ nav #separator {
 }
 
 #subpage {
-    margin-left: calc(50% - 32.6vw);
+    margin-left: 23.2vw;
+    width: 83vw;
 }
 
 .fa-right-from-bracket {
