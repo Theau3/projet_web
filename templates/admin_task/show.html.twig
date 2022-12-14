@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('style/Admin/Task/show.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block title %}Tâche{% endblock %}
+
+{% block body %}
+    <h1>Tâche</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ task.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ task.Titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ task.Description }}</td>
+            </tr>
+            <tr>
+                <th>Avancement</th>
+                <td>{{ task.avancement }}</td>
+            </tr>
+            <tr>
+                <th>Perso</th>
+                <td>{{ task.Perso ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="buttons">
+        <a class='btn btn-primary' href="{{ path('app_admin_task_index') }}">retour à la liste</a>
+
+        <a class='btn btn-success' href="{{ path('app_admin_task_edit', {'id': task.id}) }}">modifier</a>
+
+        {{ include('admin_task/_delete_form.html.twig') }}
+    <div>
+{% endblock %}

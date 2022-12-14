@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('style/Admin/Category/new.css') }}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block title %}Créer une nouvelle catégorie{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle catégorie</h1>
+
+    {{ include('admin_category/_form.html.twig') }}
+
+    <a id="retour-liste" class='btn btn-primary' href="{{ path('app_admin_category_index') }}">retour à la liste</a>
+{% endblock %}

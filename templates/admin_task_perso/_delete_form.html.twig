@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_admin_task_perso_delete', {'Task': task_perso.Task}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ task_perso.Task) }}">
+    <button class="btn btn-danger">supprimer</button>
+</form>

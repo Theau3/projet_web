@@ -1,0 +1,37 @@
+body {
+    background-color: #31302E;
+}
+
+h1 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 6.7vw;
+    text-align: center;
+    margin-top: 1vh;
+    color: #DADEE3;
+}
+
+th,td{
+    font-family: 'Source Sans Pro';
+    color: #DADEE3;
+}
+
+img{
+    height: 3.2vh;
+    border-radius: 20px;
+}
+
+#buttons{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0.5vw;
+}
+
+#buttons a{
+    margin-right : 0.5vw;
+}
+.table{
+    width : 30vw;
+    margin-left: 35vw;
+}
