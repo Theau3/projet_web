@@ -29,7 +29,8 @@ class UserType extends AbstractType
                 )
             ->add('plain_password', TextType::class, [
                 'mapped' => false,
-                'label' => 'Mot de passe'
+                'label' => 'Mot de passe',
+                'required' => ''
             ])
             ->add('progression')
             ->add('pp', ChoiceType::class, [
