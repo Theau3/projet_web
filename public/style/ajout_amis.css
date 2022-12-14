@@ -43,16 +43,6 @@ form {
     margin-left: 28%;
 }
 
-.btn {
-    background-color: #E86C00;
-    border: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.72vw;
-    padding: 1.2vh 0;
-}
-
 #cherch {
     background-color: #E86C00;
     border: none;
@@ -73,4 +63,9 @@ form {
 .form-check-input:checked {
     background-color: #E86C00;
     border-color: #E86C00;
+}
+
+.alert {
+    width: 19vw;
+    margin-left: 23vw;
 }

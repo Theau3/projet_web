@@ -59,7 +59,7 @@
     font-size: 115%;
 }
 
-#btn {
+#BodyFriends #btn {
     background: #E86C00;
     color: #FFFFFF;
     order: 3;
@@ -69,6 +69,7 @@
     line-height: 0;
 }
 
-.fa-solid {
+#BodyFriends .fa-solid {
     color: #E86C00;
+    font-size: 4vh;
 }
