@@ -129,7 +129,7 @@ footer p {
 nav {
     position: absolute;
     top: calc(50% - 100px);
-    left: 1vw;
+    left: 0.7vw;
     display: flex;
     flex-direction: column;
 }
@@ -143,17 +143,6 @@ nav a {
 
 nav a:hover {
     color: #E86C00;
-}
-
-nav hr {
-    position: absolute;
-    width: 2px;
-    height: 0.9vw;
-    background-color: #E86C00;
-    left: -0.5vw;
-    top: 3.8vh;
-    border: none;
-    opacity: .75;
 }
 
 #selected_icon {
