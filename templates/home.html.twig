@@ -17,11 +17,11 @@
             <a id="logout" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
             <h1>Skopo</h1>
             <nav>
-                <a href="navbar.html"><i class="fa-solid fa-magnifying-glass"></i></a>
-                <a href="navbar.html" id ="selected_icon"><i class="fa-solid fa-house"></i></a>
-                <a href="/home/friends"><i class="fa-solid fa-user-group"></i></a>
-                <a href="navbar.html"><i class="fa-solid fa-envelope"></i></a>
-                <a href="navbar.html"><i class="fa-solid fa-message"></i></a>
+                <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a href="/home/objectifs" {% if ("objectifs" in url or "parametres" in url) %}id ="selected_icon"{% endif %}><i class="fa-solid fa-house"></i></a>
+                <a href="/home/friends" {% if ("friends" in url or "addfriends" in url) %}id ="selected_icon"{% endif %}><i class="fa-solid fa-user-group"></i></a>
+                <a href="#"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#"><i class="fa-solid fa-message"></i></a>
                 {% if "ROLE_ADMIN" in roles %}
                     <a href="/admin"><i class="fa-solid fa-toolbox"></i></a>
                 {% endif %}

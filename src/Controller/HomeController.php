@@ -34,6 +34,7 @@ class HomeController extends AbstractController
         $title = "débutant";
         $level_percentage = 75;
         $level = 2;
+        $url = $_SERVER['REQUEST_URI'];
         return $this->render('home.html.twig',[
             'profile_picture' => $profile_picture,
             'username' => $username,
@@ -42,6 +43,7 @@ class HomeController extends AbstractController
             'level' => $level,
             'page' => $page,
             'roles' => $roles,
+            'url' => $url,
         ]);
     }
 }
