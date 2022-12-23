@@ -1,0 +1,142 @@
+#Objectif{
+    background-color: #534F47;
+    width: 65%;
+    height : 65%;
+    border-radius: 15px;
+    display : flex;
+    flex-direction: column;
+    justify-content: stretch;
+    padding: 3vh;
+}
+
+#ObjectifHeader{
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2vw;
+    color: #DADEE3;
+
+}
+
+p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 0.7vw;
+    text-align: left;
+    color: #DADEE3;
+    margin-bottom: 0.5vh;
+}
+
+#HautHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#nom_obj{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+i{
+    color : #E86C00;
+    margin-left: 1vh;
+    margin-right: 1vh;
+}
+
+#description p{
+    color: #DADEE3;
+    font-family: 'Poppins';
+    font-weight: 200;
+    font-size: 0.5vw;
+}
+
+h2{
+    color: #DADEE3;
+    font-family: 'Poppins';
+}
+
+#ObjectifBody{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#HautObjectif{
+    display: flex;
+    flex-direction: row;
+}
+
+#btn{
+    display: flex;
+    justify-content: center;
+}
+
+.btn_valider{
+    width: 12vh;
+    height: 4vh;
+    background-color: #E86C00;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.72vw;
+    color : whitesmoke;
+    border-radius: 1vh;
+}
+
+#BasObjectif{
+    display: flex;
+    flex-direction: column;
+}
+
+#BasObjectif p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 0.5vw;
+    text-align: left;
+    color: #DADEE3;
+}
+
+.fc th{
+    color: whitesmoke;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.7vw;
+}
+
+.fc td{
+    color: whitesmoke;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 0.5vw;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

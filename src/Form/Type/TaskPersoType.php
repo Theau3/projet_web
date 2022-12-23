@@ -15,13 +15,22 @@ class TaskPersoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('Task', TaskType::class, [
-            'label' => 'Informations sur la tâche',
+            'label' => false,
         ]); //On ajoute la tâche en elle même
         $builder
-            ->add('dateDebut', DateType::class)
-            ->add('dueDate', DateType::class)
+            ->add('dateDebut', DateType::class,
+                [
+                    'label' => 'Date de début',
+                    'attr' => ['class' => 'js-datepicker'],
+                ])
+            ->add('dueDate', DateType::class, 
+            [
+                'label' => 'Date de fin',
+                'attr' => ['class' => 'js-datepicker'],
+            ])
             ->add('Enregistrer', SubmitType::class)
             ;
+
         
     }
 

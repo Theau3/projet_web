@@ -47,7 +47,10 @@
                     {{ render(controller('App\\Controller\\ParametresController::parametres')) }}
                 {% endif %}
                 {% if page == 'objectifs' %}
-                    {{ render(controller('App\\Controller\\ObjectifsController::objectifs')) }}
+                    {{ render(controller('App\\Controller\\TaskController::objectifs')) }}
+                {% endif %}
+                {% if page == 'objectif' %}
+                    {{ render(controller('App\\Controller\\TaskController::objectif_show')) }}
                 {% endif %}
                 {% if page == 'addfriends' %}
                      {{ render(controller('App\\Controller\\AddFriendsController::addfriends')) }}

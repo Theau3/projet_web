@@ -23,6 +23,7 @@ class TaskPerso
     #[Assert\Valid]
     protected $Task; //On récupère la classe Task
 
+    #[ORM\Id]//clé primaire
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'tasksPerso')]
     #[Assert\Valid]
     protected $user;
@@ -36,6 +37,41 @@ class TaskPerso
     #[Assert\Type(\DateTime::class)]
     #[ORM\Column]
     protected ?DateTime $dateDebut = null;
+
+    #[ORM\Column]
+    private ?bool $isDone = null;
+    #[ORM\Column]
+    private ?bool $isFavoris = null;
+
+
+
+    public function __construct()
+    {
+        $this->dueDate = new DateTime('now', new DateTimeZone('Europe/Paris'));
+        $this->dateDebut = new DateTime('now', new DateTimeZone('Europe/Paris'));
+    }
+
+
+
+    public function getIsDone(): ?bool
+    {
+        return $this->isDone;
+    }
+
+    public function setIsDone(?bool $isDone): void
+    {
+        $this->isDone = $isDone;
+    }
+
+    public function getIsFavoris(): ?bool
+    {
+        return $this->isFavoris;
+    }
+
+    public function setIsFavoris(?bool $isFavoris): void
+    {
+        $this->isFavoris = $isFavoris;
+    }
     
 
     public function getDueDate(): ?\DateTime
@@ -100,4 +136,38 @@ class TaskPerso
     public function getuser_id(){
         return $this->user->getId();
     }
+
+
+    // Définissez une méthode pour récupérer la tâche précédente
+    public function getPreviousTask($tasks, int $currentTaskIndex)
+    {
+        // Si l'index est supérieur à 0 (ce qui signifie qu'il existe une tâche précédente)
+        if ($currentTaskIndex > 0) {
+            // Réduisez l'index de 1 pour passer à la tâche précédente
+            $currentTaskIndex--;
+
+            // Retournez la tâche précédente
+            return $tasks[$currentTaskIndex];
+        }
+
+        // Si l'index est égal à 0 (ce qui signifie qu'il n'y a pas de tâche précédente), retournez null
+        return null;
+    }
+
+    // Définissez une méthode pour récupérer la tâche suivante
+    public function getNextTask($tasks, int $currentTaskIndex)
+    {
+        // Si l'index est supérieur à 0 (ce qui signifie qu'il existe une tâche suivante)
+        if ($currentTaskIndex < count($tasks)-1) {
+            // augmenter l'index de 1 pour passer à la tâche précédente
+            $currentTaskIndex++;
+
+            // Retournez la tâche précédente
+            return $tasks[$currentTaskIndex];
+        }
+
+        // Si l'index est égal à 0 (ce qui signifie qu'il n'y a pas de tâche précédente), retournez null
+        return null;
+    }
+
 }

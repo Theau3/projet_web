@@ -34,8 +34,9 @@ class TaskType extends AbstractType
             ->add('Titre', TextType::class)
             ->add('Description', TextType::class)
             ->add('NombreFois', IntegerType::class, [
+                'label' => 'Nombre de fois',
                 'constraints' => [
-                    new Assert\GreaterThan([
+                    new Assert\GreaterThanOrEqual([
                         'value' => 0,
                         'message' => 'Le champ ne peut pas être inférieur à zéro.',
                     ]),
@@ -43,6 +44,7 @@ class TaskType extends AbstractType
                 'required' => false,
             ])
             ->add('ChoixTemps', ChoiceType::class, [
+                'label' => 'Tous les : ',
                 'choices' => [
                     'Jour' => 1,
                     'Semaine' => 7,

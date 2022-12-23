@@ -1,0 +1,49 @@
+.container{
+    overflow-y: scroll;
+}
+
+.tableListe{
+    color : whitesmoke;
+    background-color: #625D52;
+    border-radius: 1vh;
+    width: 100%;
+    height: 100%;
+}
+
+.tableHead{
+    background-color: #31302E;
+    color : whitesmoke;
+    border-radius: 1vh;
+}
+
+.tableListe td, th{
+    text-align: center;
+    padding: 1vh;
+}
+
+.tableListe #trBody{
+    border-bottom: 0.1vh solid lightgray;
+}
+
+.btn_valider{
+    background-color: #E86C00;
+    color : whitesmoke;
+    border-radius: 1vh;
+    width: 12vh;
+    height: 4vh;
+    border: none;
+}
+
+.btn_show, .btn_edit, .btn_delete{
+    background-color: transparent;
+    border: none;
+    color : whitesmoke;
+    font-size: 1.5vh;
+    width: 100%;
+    height: 100%;
+
+}
+
+i:hover{
+    color: #E86C00;
+}

@@ -1,0 +1,82 @@
+<html lang="fr">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('style/objectif.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js" integrity="sha256-7PzqE1MyWa/IV5vZumk1CVO6OQbaJE4ns7vmxuUP/7g=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
+    {% endblock %}
+    {% block head %}
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView:  'dayGridMonth',
+                height: '400',
+                });
+                calendar.render();
+            });
+
+        </script>
+    {% endblock %}
+    {% block body %}
+        <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
+        <div id="Objectif">
+            <div id='ObjectifHeader'>
+                <div id="HautHeader">
+                    <span id="close"><i class="fa-solid fa-xmark"></i></span>
+                    <div id="nom_obj">
+                        {% if objectif.getPreviousTask(objectifs, index) is not empty %}
+                            <a href="{{ path('objectif_show', {'id': objectif.getPreviousTask(objectifs, index).getTask()}) }}"><i class="fa-solid fa-less-than"></i></a>
+                        {% endif %}
+                        {{ objectif.Task.Titre }}
+                        {% if objectif.getNextTask(objectifs, index) is not empty %}
+                            <a href="{{ path('objectif_show', {'id': objectif.getNextTask(objectifs, index).getTask()}) }}"><i class="fa-solid fa-greater-than"></i></a>
+                        {% endif %}
+                    </div>
+                    <div id="end">
+                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <div id="BasHeader">
+                    <div class="progress">
+                    {% if objectif.Task.Avancement == 0 %}
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                    {% else %}
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ (objectif.repetition * 100) / objectif.Task.Avancement }}%"></div>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div id="ObjectifBody">
+
+                <div id="HautObjectif">
+                    <div id="gauche">
+                        <div id="description">
+                            <h2>Description de l'objectif :</h2>
+                            <p>{{ objectif.Task.Description }}<p>
+                        </div>
+                        <div id="infos">
+                            <h2>Informations sur votre objectif :</h2>
+                            <p>Vous avez validé votre objectif X fois</p>
+                            <p>Il vous reste X validations pour le finir</p>
+                            <p>Vous poursuivez cet objectif depuis X jours, Y mois, Z années</p>
+                            <p>Il vous reste encore X jours, Y mois, Z années</p>
+                        </div>
+                    </div>    
+
+                    <div id="droite">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+                <div id="BasObjectif">
+                    <span id="btn"><button class="btn_valider"type="button">Valider</button></span>
+                </div>
+            </div>
+
+
+        </div>
+    {% endblock %}
+</html>

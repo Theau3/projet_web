@@ -2,9 +2,6 @@ controllers:
     resource: ../src/Controller/
     type: attribute
 
-ObjectifsController:
-    path : /objectifs
-    controller: App\Controller\ObjectifsController::objectifs
 
 FriendsController:
     path : /friends

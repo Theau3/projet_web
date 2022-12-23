@@ -24,13 +24,14 @@
                 </div>
             {% endif %}
             {% if 'voir=tous' in url %}
-                <p>test</p>
+                 {{ render(controller('App\\Controller\\TaskController::showListe')) }}
+
             {% else %}
                 <div id="Objectifs">
                     <a href="?cat=favoris" id = "favorites"><img src="{{asset('catégories/favorites.png')}}" alt ="catégorie favoris"></a>
                     <a href="?cat=lecture" id = "books"><img src="{{asset('catégories/books.png')}}" alt ="catégorie lecture"></a>
                     <a href="?cat=etudes" id = "studies"><img src="{{asset('catégories/studies.png')}}" alt ="catégorie études"></a>
-                    <a href="cat=elec" id = "electronics"><img src="{{asset('catégories/electronics.png')}}" alt ="catégorie électronique"></a>
+                    <a href="?cat=elec" id = "electronics"><img src="{{asset('catégories/electronics.png')}}" alt ="catégorie électronique"></a>
                     <a href="?cat=sport" id = "sport"><img src="{{asset('catégories/sport.png')}}" alt ="catégorie sport"></a>
                     <a href="?cat=prog" id = "programming"><img src="{{asset('catégories/programmation.png')}}" alt ="catégorie programmation"></a>
                 </div>

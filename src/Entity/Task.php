@@ -37,8 +37,10 @@ class Task
     #[ORM\Column]
     private ?bool $Perso = null;
 
+    #[ORM\Column]
     private ?int $ChoixTemps = null;
 
+    #[ORM\Column]
     private ?int $NombreFois = null;
 
 

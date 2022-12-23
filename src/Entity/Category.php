@@ -21,6 +21,9 @@ class Category
     #[Assert\NotBlank]
     public ?string $nom = null;
 
+    #[ORM\Column]
+    private ?string $image = null;
+
     #[ORM\OneToMany(targetEntity: Task::class, mappedBy: 'category')]
     private $tasks; //Pour accéder aux tâches d'une catégorie.
 
@@ -38,6 +41,18 @@ class Category
     public function setNomCat(string $nom): void
     {
         $this->nom = $nom; 
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 
     public function __construct()
