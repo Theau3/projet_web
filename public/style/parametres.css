@@ -92,6 +92,7 @@ label,legend{
 
 #new_profile_picture_pp{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -112,4 +113,8 @@ label img{
 
 input[type="radio"]:checked + label{
     background-color: #E86C00;
+}
+
+legend{
+    text-align: center;
 }

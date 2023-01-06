@@ -33,3 +33,9 @@ form[name = "category"]{
     width: max-content;
     margin-bottom: 1vh;
 }
+
+#quitter{
+    font-size: 1vw;
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+}
