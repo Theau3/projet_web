@@ -62,6 +62,7 @@ class TaskType extends AbstractType
             ])
         ;
         $categories = $this->categoryRepository->findAll();
+        unset($categories[0]); //on enlève la catégorie favoris qui est gérée différemment
         $builder->add('category', ChoiceType::class, [
             'label' => 'Sélectionnez la catégorie désirée',
             'choices' => $categories,

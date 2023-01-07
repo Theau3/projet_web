@@ -1,3 +1,17 @@
+body{
+    background-color: #31302E;
+}
+
+#body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+
 #Objectif{
     background-color: #534F47;
     width: 65%;
@@ -6,7 +20,14 @@
     display : flex;
     flex-direction: column;
     justify-content: stretch;
+    align-items: stretch;
     padding: 3vh;
+    position: center;
+}
+
+#test{
+    width: 100%;
+    height: 100%;
 }
 
 #ObjectifHeader{
@@ -18,14 +39,15 @@
     font-weight: 400;
     font-size: 2vw;
     color: #DADEE3;
+    margin-bottom: 3vh;
 
 }
 
 p{
     font-family: 'Poppins';
     font-style: normal;
-    font-weight: 200;
-    font-size: 0.7vw;
+    font-weight: 400;
+    font-size: 1vw;
     text-align: left;
     color: #DADEE3;
     margin-bottom: 0.5vh;
@@ -52,19 +74,24 @@ i{
 #description p{
     color: #DADEE3;
     font-family: 'Poppins';
-    font-weight: 200;
-    font-size: 0.5vw;
+    font-weight: 400;
+    font-size: 1vw;
 }
 
 h2{
     color: #DADEE3;
     font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.5vw;
+
 }
 
 #ObjectifBody{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex: 8;
+    margin-bottom: 1vh;
 }
 
 #HautObjectif{
@@ -72,9 +99,24 @@ h2{
     flex-direction: row;
 }
 
+#HautObjectif #gauche{
+    display: flex;
+    flex-direction: column;
+    flex: 1.5;
+}
+
+#HautObjectif #droite{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    background-color: #31302E;
+    border-radius: 2vh;
+}
+
 #btn{
     display: flex;
     justify-content: center;
+    margin-top: 2vh;
 }
 
 .btn_valider{
@@ -110,6 +152,7 @@ h2{
     font-style: normal;
     font-weight: 400;
     font-size: 0.7vw;
+    border : 0;
 }
 
 .fc td{
@@ -118,7 +161,133 @@ h2{
     font-style: normal;
     font-weight: 200;
     font-size: 0.5vw;
+    align-items: center;
+    border : 0;
+
+}
+
+
+.fc-scrollgrid-sync-table, thead{
+    background-color: #31302E;
+    border-radius: 1vh;
+    border: none;
+}
+
+.fc-daygrid-day-number{
+    color: whitesmoke;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.7vw;
+}
+
+#droite button{
+    background-color: transparent;
+    border: none;
+}
+
+#gauche h2{
+    color: #DADEE3;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.8vw;
+}
+
+#container{
+    position: relative;
+}
+
+#icon-div{
+    background-color: #31302E;
+    border-radius: 1vh;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height : 12vh;
+    width: 5.5vh;
+    padding: 1vh;
+}
+
+#icon-div i{
+    margin-top: 1.5vh;
+}
+
+#icon{
+    color: #E86C00;
+    font-size: 1.8vw;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+}
+
+#orange{
+    color: #E86C00;
+}
+
+#validation-div{
+    background-color: #31302E;
+    border-radius: 1vh;
+    border : 0.1vh solid #E86C00;
+    opacity : 0.9;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -15%);
+    z-index: 9999;
+    width: 50vh;
+    height: 35vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2vh;
+}
+
+#validation-div h2{
+    color: #DADEE3;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.8vw;
+    margin-top: 2vh;
+}
+
+#validation-div p{
+    color: #DADEE3;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.7vw;
+    margin-top: 2vh;
+}
+
+.progress{
+    background-color: #31302E;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    height: 2vh;
+    font-size: medium;
+    font-family: poppins;
+    font-weight: 400;
+    color: #DADEE3;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+}
+
+.progress-bar{
+    background-color: #E86C00;
+    height: 2vh;
+}
+
+#separator{
+    width: 35%;
+    height: 1px;
+    background-color: whitesmoke;
+    margin: auto;
+    text-align: center;
 }
 
 

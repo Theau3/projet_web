@@ -8,6 +8,8 @@ use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class HomeController extends AbstractController
@@ -21,7 +23,7 @@ class HomeController extends AbstractController
         $this->security = $security;
     }
     #[Route('/home/{page}', name: 'app_home')]
-    public function home(string $page,ManagerRegistry $doctrine): Response
+    public function home(string $page,ManagerRegistry $doctrine, SessionInterface $session, Request $request): Response
     {
         //$repository = $doctrine->getRepository(User::class);
         //$username = $this->getUser()->getUserIdentifier();
@@ -29,6 +31,7 @@ class HomeController extends AbstractController
         $user = $this->security->getUser();
         $username = $user->getUsername();
         $roles = $user->getRoles();
+        $session->set('show_done', $request->request->get('show_done'));
 
         $profile_picture = $user->getPp();  
         $title = "débutant";

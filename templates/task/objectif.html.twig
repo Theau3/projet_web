@@ -1,9 +1,9 @@
-<html lang="fr">
-    {% block stylesheets %}
+{% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('style/objectif.css') }}">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js" integrity="sha256-7PzqE1MyWa/IV5vZumk1CVO6OQbaJE4ns7vmxuUP/7g=" crossorigin="anonymous"></script>
+        
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous">
     {% endblock %}
     {% block head %}
@@ -12,20 +12,72 @@
             document.addEventListener('DOMContentLoaded', function() {
                 var calendarEl = document.getElementById('calendar');
                 var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView:  'dayGridMonth',
-                height: '400',
+                initialView: 'dayGridMonth',
+                locale: 'fr',
+                events: [
+                    {
+                    title: '{{ objectif.Task.Titre }}',
+                    start: '{{ dateDebut|date("Y-m-d") }}',
+                    end: '{{ dateFin|date("Y-m-d") }}'
+                    }
+                ],
+                eventColor: '#E86C00',
+                headerToolbar: {
+                    left: 'prev',
+                    center: 'title',
+                    right: 'next'
+                },
+                firstDay: 1,
+                expandRows: true,
+                height: '100%',
+                contentHeight: 'auto',
+
                 });
                 calendar.render();
             });
 
+            function showIcon() {
+                var icon = document.getElementById("icon-div");
+                if (icon.style.display === "none") {
+                    icon.style.display = "block";
+                } else {
+                    icon.style.display = "none";
+                }
+            }
+
+            function valider() {
+                var validation = document.getElementById("validation-div");
+                if (validation.style.display === "none") {
+                    validation.style.display = "block";
+                } else {
+                    validation.style.display = "none";
+                }
+            }
+
+            function supprimer(taskId) {
+                if (confirm('Vous êtes sur le point de supprimer votre objectif. Voulez-vous continuer ?')) {
+                    window.location.pathname = "/objectif/" + taskId + "/delete";
+                }
+                else {
+                    return false;
+                } 
+            }
+
         </script>
     {% endblock %}
     {% block body %}
+    <div id="body">
+        <p>Vous pouvez voir ici les détails de votre objectif</p>
         <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
         <div id="Objectif">
+            <div id="test">
             <div id='ObjectifHeader'>
                 <div id="HautHeader">
-                    <span id="close"><i class="fa-solid fa-xmark"></i></span>
+                    <span id="close">
+                    <a href="/home/objectifs?voir=tous">
+                    <i class="fa-solid fa-xmark"></i>
+                    </a>
+                    </span>
                     <div id="nom_obj">
                         {% if objectif.getPreviousTask(objectifs, index) is not empty %}
                             <a href="{{ path('objectif_show', {'id': objectif.getPreviousTask(objectifs, index).getTask()}) }}"><i class="fa-solid fa-less-than"></i></a>
@@ -36,8 +88,26 @@
                         {% endif %}
                     </div>
                     <div id="end">
-                        <i class="fa-regular fa-heart"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <div id = "container">
+                                {% if objectif.isFavoris == 1 %}
+                                <a href="{{ path('objectif_favoris_delete', {'id': objectif.Task.Id}) }}">
+                                    <i class="fa-solid fa-heart"></i></a>
+                                {% else %}
+                                    <a href="{{ path('objectif_favoris', {'id': objectif.Task.Id}) }}">
+                                        <i class="fa-regular fa-heart"></i></a>
+                                {% endif %}
+                                <!-- Bouton qui affiche les icones -->
+                                <button id="icon" onclick="showIcon()">
+                                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                                </button>
+                                <!-- Quand on clique sur le bouton, on affiche les icones -->
+                                <div id="icon-div" style="display:none;">
+                                    <a href="{{ path('objectif_edit', {'id': objectif.Task.Id}) }}">
+                                        <i class="fa-solid fa-edit"></i></a>
+                                    <a href="#" onclick="supprimer({{objectif.Task.Id}})">
+                                        <i class="fa-solid fa-trash"></i></a>
+                                </div>
+                            </div>    
                     </div>
                 </div>
                 <div id="BasHeader">
@@ -47,6 +117,13 @@
                     {% else %}
                         <div class="progress-bar bg-success" role="progressbar" style="width: {{ (objectif.repetition * 100) / objectif.Task.Avancement }}%"></div>
                     {% endif %}
+                    
+                    {% if objectif.Task.avancement == 0 %}
+                        0%
+                    {% else %}
+                        {{ ((objectif.repetition * 100) / objectif.Task.Avancement)|round(1, 'ceil') }}%
+                    {% endif %}
+                        <div id="separator"></div>
                     </div>
                 </div>
             </div>
@@ -60,10 +137,10 @@
                         </div>
                         <div id="infos">
                             <h2>Informations sur votre objectif :</h2>
-                            <p>Vous avez validé votre objectif X fois</p>
-                            <p>Il vous reste X validations pour le finir</p>
-                            <p>Vous poursuivez cet objectif depuis X jours, Y mois, Z années</p>
-                            <p>Il vous reste encore X jours, Y mois, Z années</p>
+                            <p>Vous avez validé votre objectif <span id="orange">{{objectif.Repetition}}</span> fois</p>
+                            <p>Il vous reste <span id="orange">{{objectif.Task.Avancement - objectif.Repetition}}</span> validation(s) pour le finir</p>
+                            <p>Vous poursuivez cet objectif depuis <span id="orange">{{nombreJoursEcoules}}</span> jour(s)/ <span id="orange">{{nombreMoisEcoules}}</span> mois/ <span id="orange">{{nombreAnneesEcoules}}</span> année(s)</p>
+                            <p>Il vous reste encore <span id="orange">{{nombreJoursRestants}}</span> jour(s)/ <span id="orange">{{nombreMoisRestants}}</span> mois/ <span id="orange">{{nombreAnneesRestants}}</span> année(s)</p>
                         </div>
                     </div>    
 
@@ -72,11 +149,40 @@
                     </div>
                 </div>
                 <div id="BasObjectif">
-                    <span id="btn"><button class="btn_valider"type="button">Valider</button></span>
+                <!-- Si l'objectif est fini, on affiche la validation finale-->
+                    {% if objectif.Task.Avancement + 1 == objectif.Repetition %}
+                        <div id="validation-div" style="display:none;">
+                            <h2 id="validation">Validation de l'objectif :</h2>
+                            <p>Vous venez de finir votre objectif, félicitations !</p>
+                            <p>Vous pouvez le valider définitivement en cliquant sur le bouton ci-dessous</p>
+                            <a href="{{ path('valider_objectif', {'id': objectif.Task.getIdTask()}) }}">
+                                <button class="btn_valider"type="button">Valider</button>
+                            </a>
+                            <p>Vous pouvez aussi le continuer en cliquant sur le bouton ci-dessous</p>
+                            <a href="{{ path('continuer_objectif', {'id': objectif.Task.getIdTask()}) }}">
+                                <button class="btn_valider"type="button">Continuer</button>
+                            </a>
+                        </div>
+                    {% else %}
+                        <div id="validation-div" style="display:none;">
+                            <h2 id="validation">Validation de l'objectif :</h2>
+                            <p>Voulez-vous vraiment valider votre objectif ?</p>
+                            <p>Vous pouvez le valider en cliquant sur le bouton ci-dessous</p>
+                            <a href="{{ path('valider_objectif', {'id': objectif.Task.getIdTask()}) }}">
+                                <button class="btn_valider"type="button">Valider</button>
+                            </a>
+                            <p>Vous pouvez aussi revenir en arrière en cliquant sur le bouton ci-dessous</p>
+                            <!-- On simule le clic sur le bouton Valider, qui va juste rendre la div en display none à nouveau -->
+                            <button class="btn_valider"type="button" onclick="valider()">Annuler</button>
+                        </div>
+                    {% endif %}
+                    <span id="btn">                     
+                        <button class="btn_valider"type="button" onclick="valider()">Valider</button>
+                    </span>
                 </div>
             </div>
 
-
+            </div>
         </div>
+    </div>
     {% endblock %}
-</html>

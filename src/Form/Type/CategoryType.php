@@ -12,6 +12,7 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('nom');
+        $builder->add('image');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -23,6 +23,12 @@
     text-decoration-thickness: 3px;
 }
 
+#HeaderObjectifs a:hover{
+    color: lightslategray;
+    text-decoration-color: lightslategray;
+}
+
+
 #btn-ajout{
     background-color: #E86C00;
     border: none;

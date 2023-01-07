@@ -2,6 +2,33 @@
     overflow-y: scroll;
 }
 
+#tachesFinies{
+    color : whitesmoke;
+    font-family: 'poppins';
+    margin: auto;
+}
+
+#submit{
+    background-color: #E86C00;
+    color : whitesmoke;
+    border-radius: 1vh;
+    padding: 1vh;
+    width: auto;
+    height: auto;
+    border: none;
+}
+
+#submit:hover{
+    background-color: #a24c00;
+    color : lightgrey;
+}
+
+#show_done{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
 .tableListe{
     color : whitesmoke;
     background-color: #625D52;
@@ -44,6 +71,43 @@
 
 }
 
+i{
+    color: whitesmoke;
+}
 i:hover{
     color: #E86C00;
 }
+
+#validation-div{
+    background-color: #31302E;
+    border-radius: 1vh;
+    border : 0.1vh solid #E86C00;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 50vh;
+    height: 35vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2vh;
+}
+
+#validation-div h2{
+    color: #DADEE3;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.8vw;
+    margin-top: 2vh;
+}
+
+#validation-div p{
+    color: #DADEE3;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 0.7vw;
+    margin-top: 2vh;
+}   

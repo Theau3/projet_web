@@ -1,39 +1,41 @@
-<html lang="fr">
+<html>
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('style/objectifs.css') }}">
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     {% endblock %}
-    {% block body %}
+    {% block subpage %}
     <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
         <div id="BodyObjectifs">
             <div id="HeaderObjectifs">
                 {% if 'voir=tous' in url %}
-                    <a href="?voir=cat" id = "non_selected">Catégories</a>
+                    <a href="?voir=categories" id = "non_selected">Catégories</a>
                     <a href="?voir=tous">Tous</a>
                     <a id="btn-ajout" href="/task/new" class="btn btn-primary">Nouvel Objectif</a>
                 {% else %}
-                    <a href="?voir=cat">Catégories</a>
+                    <a href="?voir=categories">Catégories</a>
                     <a href="?voir=tous" id = "non_selected">Tous</a>
                     <a id="btn-ajout" href="/task/new" class="btn btn-primary">Nouvel Objectif</a>
                 {% endif %}
             </div>
+            
             {% if 'form=ok' in url %}
                 <div class="alert alert-success" role="alert">
                     Objectif créé avec succès
                 </div>
             {% endif %}
-            {% if 'voir=tous' in url %}
-                 {{ render(controller('App\\Controller\\TaskController::showListe')) }}
-
+            {% if 'form=ko' in url %}
+                <div class="alert alert-danger" role="alert">
+                    Erreur lors de la création de l'objectif
+                </div>
+            {% endif %}
+            {% if 'voir=tous' in url or 'tri' in url %}
+                 {{ render(controller('App\\Controller\\TaskController::showListe')) }}                            
             {% else %}
                 <div id="Objectifs">
-                    <a href="?cat=favoris" id = "favorites"><img src="{{asset('catégories/favorites.png')}}" alt ="catégorie favoris"></a>
-                    <a href="?cat=lecture" id = "books"><img src="{{asset('catégories/books.png')}}" alt ="catégorie lecture"></a>
-                    <a href="?cat=etudes" id = "studies"><img src="{{asset('catégories/studies.png')}}" alt ="catégorie études"></a>
-                    <a href="?cat=elec" id = "electronics"><img src="{{asset('catégories/electronics.png')}}" alt ="catégorie électronique"></a>
-                    <a href="?cat=sport" id = "sport"><img src="{{asset('catégories/sport.png')}}" alt ="catégorie sport"></a>
-                    <a href="?cat=prog" id = "programming"><img src="{{asset('catégories/programmation.png')}}" alt ="catégorie programmation"></a>
+                    {% for categorie in categories %}
+                        <a href="?tri={{ categorie.id }}" id = "{{ categorie.nom }}"><img src="{{asset('catégories/' ~ categorie.image ~ '')}}" alt ="catégorie {{ categorie.nom }}"></a>
+                    {% endfor %}
                 </div>
             {% endif %}
         </div>

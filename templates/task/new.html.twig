@@ -1,5 +1,4 @@
 {# templates/task/new.html.twig #}
-{% extends 'base.html.twig' %}
 {% block stylesheets %}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('style/task_new.css') }}">
@@ -7,8 +6,26 @@
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
 {% endblock %}
 
-{% block title %}Informations sur la tâche{% endblock %}
+{% block head %}
+    <script>
+        function showFrequence() {
+        var x = document.getElementsByClassName("ChoixFrequence")[0];
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        }
+    </script>
+{% endblock %}
+
 {% block body %}
+    <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
+    <span id="close">
+        <a href="/home/objectifs">
+            <i class="fa-solid fa-xmark"></i>
+        </a>
+    </span>
     <h1>Création de votre objectif</h1>
     <p>Créez votre objectif dès maintenant !</p>
     <form action="{{ path('task_perso') }}" method="post">
@@ -21,7 +38,10 @@
         <div class="category">
             {{ form_row(task_perso.Task.category, { 'attr': {'class': 'form-control'} }) }}
         </div>
-        <div class="ChoixFrequence">
+        <p>Désirez-vous ajouter une fréquence à votre objectif ?</p>
+        <button type="button" onclick="showFrequence()">Oui</button>
+        <div class="ChoixFrequence" style="display:none;">
+        <p>Choisissez la fréquence de votre objectif :</p>
         {{ form_label(task_perso.Task.NombreFois, 'Nombre de fois (laissez tel quel si vous ne voulez pas lui ajouter de fréquence):', {'label_attr': {'class': 'foo'}}) }}
         {{ form_widget(task_perso.Task.NombreFois) }}
         {{ form_label(task_perso.Task.ChoixTemps, 'Par : ', {'label_attr': {'class': 'foo'}}) }}

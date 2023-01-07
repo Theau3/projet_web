@@ -8,8 +8,20 @@ h1{
     font-weight: 500;
     font-size: 5vw;
     text-align: center;
-    margin-top: 11vh;
+    margin-top: 4vh;
     color: #DADEE3;
+}
+
+#close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2vw 2vw;
+}
+
+i{
+    color: #E86C00;
+    font-size: 2vw;
 }
 
 h3{

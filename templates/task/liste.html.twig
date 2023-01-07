@@ -4,6 +4,28 @@
         <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     {% endblock %}
+    {% block head %}
+        <script>
+            function valider(taskId) {
+                if (confirm('Vous êtes sur le point de valider votre objectif. Voulez-vous continuer ?')) {
+                    window.location.pathname = "/objectif/" + taskId + "/valider";
+                }
+                else {
+                    return false;
+                }
+            }
+
+            function supprimer(taskId) {
+                if (confirm('Vous êtes sur le point de supprimer votre objectif. Voulez-vous continuer ?')) {
+                    window.location.pathname = "/objectif/" + taskId + "/delete";
+                }
+                else {
+                    return false;
+                } 
+            }  
+
+        </script>
+    {% endblock %}
     {% block body %}
     <div class="container">
         <table class="tableListe">
@@ -13,62 +35,111 @@
                 <th scope="col">Catégorie</th>
                 <th scope="col">Avancement</th>
                 <th scope="col">Validation</th>
+                {% if show_done == false %}
+                    <th scope="col"></th>
+                {% endif %}
                 <th scope="col"></th>
                 <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 {% for taskPerso in objectifs %}
-                    {% if (taskPerso.isDone == 0)  %}
-                        <tr id="trBody">
-                            <!-- mettre un lien sur la cellule -->
+                    <tr id="trBody">
+                        <!-- mettre un lien sur la cellule -->
+                            {% if taskPerso.isDone == false %}
                             <td>
-                                <a href="{{ path('objectif_show', {'id': taskPerso.Task.getIdTask()}) }}">
-                                    <button class="btn_show" type="button">
-                                        {{ taskPerso.Task.Titre }}
-                                    </button>
+                            <a href="{{ path('objectif_show', {'id': taskPerso.Task.getIdTask()}) }}">
+                                <button class="btn_show" type="button">
+                                    {{ taskPerso.Task.Titre }}
+                                </button>
+                            </a>
                             </td>
+                            {% else %}
+                            <td style="background-color='grey'">
+                                {{ taskPerso.Task.Titre }}
+                            </td>
+                            {% endif %}
+                            {% if taskPerso.isDone == false %}
                             <td>
                                 <a href="{{ path('objectif_show', {'id': taskPerso.Task.getIdTask()}) }}">
                                     <button class="btn_show" type="button">
                                         {{ taskPerso.Task.category.nom }}
                                     </button>
-                            </td>
-                            <td> 
-                                <a href="{{ path('objectif_show', {'id': taskPerso.Task.getIdTask()}) }}">
-                                    <button class="btn_show" type="button">
-                                    <!-- Mise en pourcentage de l'avancement -->
-                                        {% if taskPerso.Task.avancement == 0 %}
-                                            0%
-                                        {% else %}
-                                            {{ (taskPerso.repetition * 100) / taskPerso.Task.Avancement }}%
-                                        {% endif %}
-                                    </button>
-                            </td>
-                            <td>
-                                <a href="{{ path('valider_objectif', {'id': taskPerso.Task.getIdTask()}) }}">
-                                    <button class="btn_valider" type="button">
-                                        Valider
-                                    </button>
-                            </td>
-                            <td>
-                                <a href="{{ path('objectif_edit', {'id': taskPerso.Task.getIdTask()}) }}">
-                                    <button class="btn_edit" type="button">
-                                        <i class="fa-solid fa-edit"></i>
-                                    </button>
                                 </a>
                             </td>
-                            <td>
-                                <a href="{{ path('objectif_delete', {'id': taskPerso.Task.getIdTask()}) }}">
-                                    <button class="btn_delete" type="button">
-                                        <i class="fas fa-trash-alt delete-icon"></i>
-                                    </button>
+                            {% else %}
+                            <td style="background-color='grey'">
+                                {{ taskPerso.Task.category.nom }}
                             </td>
-                        </tr>
-                    {% endif %}
+                            {% endif %}
+
+                            {% if taskPerso.isDone == false %}
+                                <td> 
+                                    <a href="{{ path('objectif_show', {'id': taskPerso.Task.getIdTask()}) }}">
+                                        <button class="btn_show" type="button">
+                                        <!-- Mise en pourcentage de l'avancement -->
+                                            {% if taskPerso.Task.avancement == 0 %}
+                                                0%
+                                            {% else %}
+                                                {{ ((taskPerso.repetition * 100) / taskPerso.Task.Avancement)|round(1, 'ceil') }}%
+                                            {% endif %}
+                                        </button>
+                                </td>
+                            {% else %}
+                                <td style="background-color='grey'">
+                                    <!-- l'avancement d'une tâche finie est forcément de 100% -->
+                                    100%
+                                </td>
+                            {% endif %}
+                        {% if taskPerso.isDone == false %}
+                            <td>                
+                                <button class="btn_valider"type="button" onclick="valider({{taskPerso.Task.getIdTask()}})">Valider</button>
+                            </td>
+                        {% else %}
+                            <td>
+                                Objectif terminé
+                            </td>
+                        {% endif %}
+                        <td>
+                            {% if taskPerso.isFavoris == 1 %}
+                            <a href="{{ path('objectif_favoris_delete', {'id': taskPerso.Task.Id}) }}">
+                                <i class="fa-solid fa-heart"></i></a>
+                            {% else %}
+                                <a href="{{ path('objectif_favoris', {'id': taskPerso.Task.Id}) }}">
+                                    <i class="fa-regular fa-heart"></i></a>
+                            {% endif %}
+                        </td>
+                        {% if taskPerso.isDone == false %}
+                        <td>
+                            <a href="{{ path('objectif_edit', {'id': taskPerso.Task.getIdTask()}) }}">
+                                <button class="btn_edit" type="button">
+                                    <i class="fa-solid fa-edit"></i>
+                                </button>
+                            </a>
+                        </td>
+                        {% endif %}
+                        <td>
+                            <button class="btn_delete" type="button" onclick="supprimer({{taskPerso.Task.getIdTask()}})">
+                                <i class="fas fa-trash-alt delete-icon"></i>
+                            </button>
+                        </td>
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    
+    {% if show_done == 1 %}
+    <form id="tachesFinies" method="post">
+        <input type="text" id="show_done" name="show_done"  value="0">
+        <input id="submit" type="submit" value="Afficher les objectifs en cours">
+    </form>
+    {% else %}
+    <form id="tachesFinies" method="post">
+        <input type="text" id="show_done" name="show_done" value="1">
+        <input id="submit" type="submit" value="Afficher les objectifs terminés">
+    </form>
+    {% endif %}
+
     {% endblock %}
 </html>
