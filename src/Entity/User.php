@@ -171,6 +171,37 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getExperience(int $level){
+        $progression = 13.1*($level**3.1);
+        return $progression;
+    }
+
+    public function getLevel(int $experience){
+        $level = 0.436*($experience**0.323);
+        return floor($level);
+    }
+
+    public function getLevelPercentage(int $level,int $progression){
+        $xp_for_next_level = $this->getExperience($level+1) - $this->getExperience($level);
+        $xp_from_level = $progression - $this->getExperience($level);
+        $level_percentage = ($xp_from_level / $xp_for_next_level)*100;
+        return intval($level_percentage);
+    }
+
+    public function getTitre(int $level){
+        if ($level < 10) {
+            $titre = "débutant";
+        }elseif ($level < 20) {
+            $titre = "novice";
+        }elseif ($level < 30) {
+            $titre = "intermédiaire";
+        }elseif ($level < 40) {
+            $titre = "avancé";
+        }else{
+            $titre = "expert";
+        }
+        return $titre;
+    }
 
 
 }

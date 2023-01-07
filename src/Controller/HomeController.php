@@ -31,12 +31,14 @@ class HomeController extends AbstractController
         $user = $this->security->getUser();
         $username = $user->getUsername();
         $roles = $user->getRoles();
+        $progression = $user->getProgression();
         $session->set('show_done', $request->request->get('show_done'));
 
         $profile_picture = $user->getPp();  
-        $title = "débutant";
-        $level_percentage = 75;
-        $level = 2;
+        $level = $user->getLevel($progression);
+        $title = $user->getTitre($level);
+        $level_percentage = $user->getLevelPercentage($level,$progression);
+
         $url = $_SERVER['REQUEST_URI'];
         return $this->render('home.html.twig',[
             'profile_picture' => $profile_picture,
