@@ -18,7 +18,21 @@
                     <a id="btn-ajout" href="/task/new" class="btn btn-primary">Nouvel Objectif</a>
                 {% endif %}
             </div>
-            
+            {% if 'objectif=done' in url %}
+                <div class="alert alert-success" role="alert">
+                    Vous avez validé votre objectif ! Bravo !
+                </div>
+            {% endif %}
+            {% if 'objectif=modif' in url %}
+                <div class="alert alert-success" role="alert">
+                    Objectif modifié avec succès
+                </div>
+            {% endif %}
+            {% if 'objectif=continue' in url %}
+                <div class="alert alert-success" role="alert">
+                    Objectif repris avec succès
+                </div>
+            {% endif %}
             {% if 'form=ok' in url %}
                 <div class="alert alert-success" role="alert">
                     Objectif créé avec succès
@@ -36,6 +50,9 @@
                     {% for categorie in categories %}
                         <a href="?tri={{ categorie.id }}" id = "{{ categorie.nom }}"><img src="{{asset('catégories/' ~ categorie.image ~ '')}}" alt ="catégorie {{ categorie.nom }}"></a>
                     {% endfor %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="../admin/category/new" id="btn-ajout">Ajout catégorie</a>
+                    {% endif %}
                 </div>
             {% endif %}
         </div>

@@ -28,29 +28,32 @@
     height: 0;
     visibility: hidden;
 }
-
-.tableListe{
-    color : whitesmoke;
-    background-color: #625D52;
-    border-radius: 1vh;
-    width: 100%;
-    height: 100%;
-}
-
 .tableHead{
     background-color: #31302E;
     color : whitesmoke;
     border-radius: 1vh;
 }
 
+.tableListe{
+    color : whitesmoke;
+    background-color: #90441E;
+    border-radius: 1vh;
+    width: 100%;
+    height: 100%;
+}
+
+tr:nth-child(even){
+    background-color: #675146;
+}
+
+
+
 .tableListe td, th{
     text-align: center;
     padding: 1vh;
 }
 
-.tableListe #trBody{
-    border-bottom: 0.1vh solid lightgray;
-}
+
 
 .btn_valider{
     background-color: #E86C00;

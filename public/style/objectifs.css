@@ -12,18 +12,19 @@
     flex-direction: row;
     justify-content: space-around;
     margin-top: 6%;
-    margin-bottom: 6%;
+    margin-bottom: 2%;
 }
 
-#HeaderObjectifs a{
+#HeaderObjectifs a, #Objectifs a{
     font-size:x-large;
     font-family: 'poppins';
     color : white;
     text-decoration-color: white;
     text-decoration-thickness: 3px;
+    align-items: center;
 }
 
-#HeaderObjectifs a:hover{
+#HeaderObjectifs a:hover, #Objectifs a:hover{
     color: lightslategray;
     text-decoration-color: lightslategray;
 }
@@ -39,7 +40,7 @@
     padding: 1% 1%;
 }
 
-#non_selected{
+#non_selected, #Objectifs a{
     text-decoration: none;
 }
 
@@ -53,6 +54,13 @@
 }
 
 #Objectifs a{
-    margin-bottom: 7%;
+    margin: 1%;
+    padding: 1%;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
 }
+
+
 

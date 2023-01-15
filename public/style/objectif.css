@@ -1,45 +1,24 @@
 body{
-    background-color: #31302E;
-}
-
-#body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
-
-
-#Objectif{
-    background-color: #534F47;
-    width: 65%;
-    height : 65%;
-    border-radius: 15px;
+    background: rgb(49,48,46);
+    background: linear-gradient(135deg, rgba(49,48,46,1) 7%, rgba(83,79,71,1) 25%, rgba(54,54,103,1) 100%); 
     display : flex;
     flex-direction: column;
     justify-content: stretch;
     align-items: stretch;
-    padding: 3vh;
+    padding-right: 4vw;
+    padding-left: 4vw;
     position: center;
-}
-
-#test{
-    width: 100%;
-    height: 100%;
 }
 
 #ObjectifHeader{
     display: flex;
-    flex: 2;
     flex-direction: column;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 2vw;
+    font-size: 2.5vw;
     color: #DADEE3;
-    margin-bottom: 3vh;
+    margin-bottom: 2vh;
 
 }
 
@@ -47,10 +26,15 @@ p{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 1vw;
+    font-size: 2.3vh;
     text-align: left;
     color: #DADEE3;
-    margin-bottom: 0.5vh;
+}
+
+#progressText{
+    font-size : 1vw;
+    text-align: center;
+    color: #E86C00;
 }
 
 #HautHeader{
@@ -71,11 +55,15 @@ i{
     margin-right: 1vh;
 }
 
+i :hover{
+    color: #945115;
+}
+
 #description p{
     color: #DADEE3;
     font-family: 'Poppins';
     font-weight: 400;
-    font-size: 1vw;
+    font-size: 2.3vh;
 }
 
 h2{
@@ -83,6 +71,7 @@ h2{
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 1.5vw;
+    text-decoration: underline;
 
 }
 
@@ -90,8 +79,8 @@ h2{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    flex: 8;
-    margin-bottom: 1vh;
+    margin-bottom: 0.5vh;
+    padding-top: 7vh;
 }
 
 #HautObjectif{
@@ -109,27 +98,32 @@ h2{
     display: flex;
     justify-content: center;
     flex: 1;
-    background-color: #31302E;
     border-radius: 2vh;
 }
 
 #btn{
     display: flex;
     justify-content: center;
-    margin-top: 2vh;
+    align-items: center;
+   
 }
 
 .btn_valider{
-    width: 12vh;
-    height: 4vh;
+    width: 20vh;
+    height: 6vh;
     background-color: #E86C00;
     border: none;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.72vw;
+    font-size: 2.8vh;
     color : whitesmoke;
     border-radius: 1vh;
+}
+
+.btn_valider:hover{
+    background-color: #945115;
+    color : lightgray;
 }
 
 #BasObjectif{
@@ -146,6 +140,24 @@ h2{
     color: #DADEE3;
 }
 
+.fc{
+    background-color: #31302E;
+    border-radius: 1vh;
+    border: none;
+}
+
+#fc-dom-1{
+    font-size: 2vw;
+    text-decoration: none;
+}
+
+#calendar button{
+    background-color: transparent;
+    border: none;
+    font-size: 2vw;
+    color : #E86C00;
+}
+
 .fc th{
     color: whitesmoke;
     font-family: 'Poppins';
@@ -160,11 +172,12 @@ h2{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 200;
-    font-size: 0.5vw;
+    font-size: 0.9vw;
     align-items: center;
     border : 0;
-
 }
+
+
 
 
 .fc-scrollgrid-sync-table, thead{
@@ -178,7 +191,7 @@ h2{
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.7vw;
+    font-size: 0.9vw;
 }
 
 #droite button{
@@ -204,11 +217,12 @@ h2{
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 0;
-    left: 100%;
-    height : 12vh;
-    width: 5.5vh;
+    top: 80%;
+    left: 55%;
+    height : 15vh;
+    width: 6vh;
     padding: 1vh;
+    border : 0.1vh solid #E86C00;
 }
 
 #icon-div i{
@@ -217,7 +231,7 @@ h2{
 
 #icon{
     color: #E86C00;
-    font-size: 1.8vw;
+    font-size: 2.3vw;
     margin: auto;
     background-color: transparent;
     border: none;
@@ -233,17 +247,17 @@ h2{
     border : 0.1vh solid #E86C00;
     opacity : 0.9;
     display: flex;
-    justify-content: center;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -15%);
+    transform: translate(-50%, 0%);
     z-index: 9999;
     width: 50vh;
-    height: 35vh;
+    height: 38vh;
     flex-direction: column;
-    align-items: center;
     padding: 1.2vh;
+    margin : auto;
+    text-align: center;
 }
 
 #validation-div h2{
@@ -252,6 +266,7 @@ h2{
     font-weight: 400;
     font-size: 1.8vw;
     margin-top: 2vh;
+    text-decoration: none;
 }
 
 #validation-div p{
@@ -260,6 +275,7 @@ h2{
     font-weight: 400;
     font-size: 0.7vw;
     margin-top: 2vh;
+    text-align: center;
 }
 
 .progress{
@@ -289,6 +305,7 @@ h2{
     margin: auto;
     text-align: center;
 }
+
 
 
 

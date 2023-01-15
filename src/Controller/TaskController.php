@@ -152,14 +152,13 @@ class TaskController extends AbstractController
             $user->setProgression($user->getProgression()+$xp);
         }
         if($objectif->getIsDone() == false) {
-        $objectif->setRepetition($objectif->getRepetition()+1);
-        $xp = 10;
-        $user->setProgression($user->getProgression()+$xp);
+            $objectif->setRepetition($objectif->getRepetition()+1);
+            $xp = 10;
+            $user->setProgression($user->getProgression()+$xp);
         }
         $entityManager->flush();
 
-        $referer = $request->headers->get('referer');
-        return $this->redirect($referer);
+        return $this->redirect('/home/objectifs?objectif=done');
     }
 
     //CREATION OBJECTIFS
@@ -202,11 +201,13 @@ class TaskController extends AbstractController
             $entityManager->persist($task);
             $entityManager->persist($taskPerso);
             $entityManager->flush();
-            return $this->redirect('/home/objectifs?form=ok');;
+            return $this->redirect('/home/objectifs?form=ok');
         }
 
-        return $this->render('task/new.html.twig', [
+        return $this->render('task/form.html.twig', [
             'task_perso' => $form->createView(),
+            'nom' => 'Création de votre objectif',
+            'statut' => 'Créer',
         ]);
     }
 
@@ -237,12 +238,14 @@ class TaskController extends AbstractController
             }
             $task->setAvancement($avancement);
             $taskPersoRepository->save($taskPerso, true);
-            $url = $_SERVER['REQUEST_URI'];
-            return $this->redirect($url);
+            return $this->redirect('/home/objectifs?objectif=modif');
         }
 
-        return $this->render('task/edit.html.twig', [
+        return $this->render('task/form.html.twig', [
             'task_perso' => $form->createView(),
+            'Task' => $taskPerso->getTask(),
+            'nom' => 'Modifier la tâche',
+            'statut' => 'Modifier',
         ]);
        
     }
@@ -292,11 +295,38 @@ class TaskController extends AbstractController
     {
         $user = $this->security->getUser();
         $taskPerso = $taskPersoRepository->findOneBy(['user' => $user, 'Task' => $id]);
-        $taskPerso->setIsDone(false);
-        $entityManager->flush();
-        $referer = $request->headers->get('referer');
-        return $this->redirect($referer);
+        $form = $this->createForm(TaskPersoType::class, $taskPerso);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $taskPerso = $form->getData();
+            $task = $taskPerso->getTask();
+            $dateDebut = $taskPerso->getDateDebut();
+            $dateFin = $taskPerso->getDueDate();
+            $dateIntervalle = $dateDebut->diff($dateFin);
+            $nombreJours = $dateIntervalle->days;
+            $nombreFois = $task->getNombreFois();
+            $choixTemps = $task->getChoixTemps();
+            if($nombreFois == null){//on ne souhaite pas utiliser l'avancement par période de temps
+                $avancement = 1;//Dans ce cas on ne valide l'objectif qu'une fois : lorsqu'il est réalisé
+            }
+            else{
+                $nombreFrequence = intdiv($nombreJours, $choixTemps);
+                $avancement = $nombreFois * $nombreFrequence;
+            }
+            $task->setAvancement($avancement);
+            $taskPersoRepository->save($taskPerso, true);
+            return $this->redirect('/home/objectifs?objectif=continue');
+        }
+
+        return $this->render('task/form.html.twig', [
+            'task_perso' => $form->createView(),
+            'Task' => $taskPerso->getTask(),
+            'nom' => 'Continuer la tâche',
+            'statut' => 'Continuer',
+        ]);
     }
+
 
 
 } 

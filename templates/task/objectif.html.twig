@@ -29,9 +29,9 @@
                 },
                 firstDay: 1,
                 expandRows: true,
-                height: '100%',
+                height: '50vh',
                 contentHeight: 'auto',
-
+                dayMaxEvents: true,
                 });
                 calendar.render();
             });
@@ -66,11 +66,7 @@
         </script>
     {% endblock %}
     {% block body %}
-    <div id="body">
-        <p>Vous pouvez voir ici les détails de votre objectif</p>
         <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
-        <div id="Objectif">
-            <div id="test">
             <div id='ObjectifHeader'>
                 <div id="HautHeader">
                     <span id="close">
@@ -119,9 +115,9 @@
                     {% endif %}
                     
                     {% if objectif.Task.avancement == 0 %}
-                        0%
+                        <p id="progressText">0%</p>
                     {% else %}
-                        {{ ((objectif.repetition * 100) / objectif.Task.Avancement)|round(1, 'ceil') }}%
+                        <p id="progressText">{{ ((objectif.repetition * 100) / objectif.Task.Avancement)|round(1, 'ceil') }}%</p>
                     {% endif %}
                         <div id="separator"></div>
                     </div>
@@ -137,10 +133,23 @@
                         </div>
                         <div id="infos">
                             <h2>Informations sur votre objectif :</h2>
-                            <p>Vous avez validé votre objectif <span id="orange">{{objectif.Repetition}}</span> fois</p>
-                            <p>Il vous reste <span id="orange">{{objectif.Task.Avancement - objectif.Repetition}}</span> validation(s) pour le finir</p>
-                            <p>Vous poursuivez cet objectif depuis <span id="orange">{{nombreJoursEcoules}}</span> jour(s)/ <span id="orange">{{nombreMoisEcoules}}</span> mois/ <span id="orange">{{nombreAnneesEcoules}}</span> année(s)</p>
-                            <p>Il vous reste encore <span id="orange">{{nombreJoursRestants}}</span> jour(s)/ <span id="orange">{{nombreMoisRestants}}</span> mois/ <span id="orange">{{nombreAnneesRestants}}</span> année(s)</p>
+                            <!-- Quand l'objectif n'a pas de fréquence -->
+                            {% if objectif.Task.Avancement == 1 %}
+                                <p>Vous avez un objectif unique</p>
+                                <p>Cet objectif est dans la catégorie <span id="orange">{{ objectif.Task.category.nom }}</span></p>
+                                <p>Vous poursuivez cet objectif depuis <span id="orange">{{nombreJoursEcoules}}</span> jour(s)/ <span id="orange">{{nombreMoisEcoules}}</span> mois/ <span id="orange">{{nombreAnneesEcoules}}</span> année(s)</p>
+                                <p>Il vous reste encore <span id="orange">{{nombreJoursRestants}}</span> jour(s)/ <span id="orange">{{nombreMoisRestants}}</span> mois/ <span id="orange">{{nombreAnneesRestants}}</span> année(s)</p>
+                            <!-- Quand l'objectif a une fréquence -->
+                            {% else %}
+                                <p>Vous avez validé votre objectif <span id="orange">{{objectif.Repetition}}</span> fois</p>
+                                <p>Vous avez décidé de réaliser votre objectif <span id="orange">{{objectif.Task.NombreFois}}</span> 
+                                    fois par <span id="orange">{% if objectif.Task.ChoixTemps == 1 %}jour{% elseif objectif.Task.ChoixTemps == 7 %}semaine{% elseif objectif.Task.ChoixTemps == 30 %}mois{% endif %}</span>
+                                </p>
+                                <p>Cet objectif est dans la catégorie <span id="orange">{{ objectif.Task.category.nom }}</span></p>
+                                <p>Il vous reste <span id="orange">{{objectif.Task.Avancement - objectif.Repetition}}</span> validation(s) pour le finir</p>
+                                <p>Vous poursuivez cet objectif depuis <span id="orange">{{nombreJoursEcoules}}</span> jour(s)/ <span id="orange">{{nombreMoisEcoules}}</span> mois/ <span id="orange">{{nombreAnneesEcoules}}</span> année(s)</p>
+                                <p>Il vous reste encore <span id="orange">{{nombreJoursRestants}}</span> jour(s)/ <span id="orange">{{nombreMoisRestants}}</span> mois/ <span id="orange">{{nombreAnneesRestants}}</span> année(s)</p>
+                            {% endif %}
                         </div>
                     </div>    
 
@@ -150,7 +159,7 @@
                 </div>
                 <div id="BasObjectif">
                 <!-- Si l'objectif est fini, on affiche la validation finale-->
-                    {% if objectif.Task.Avancement + 1 == objectif.Repetition %}
+                    {% if objectif.Repetition + 1 == objectif.Task.Avancement %}
                         <div id="validation-div" style="display:none;">
                             <h2 id="validation">Validation de l'objectif :</h2>
                             <p>Vous venez de finir votre objectif, félicitations !</p>
@@ -181,8 +190,4 @@
                     </span>
                 </div>
             </div>
-
-            </div>
-        </div>
-    </div>
     {% endblock %}

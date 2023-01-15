@@ -160,3 +160,21 @@ legend{
     flex-direction: row;
 
 }
+
+button{
+    background-color: #E86C00;
+    border: none;
+    font-family: 'Poppins';
+    color : white;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1vw;
+    padding: 0.5vh;
+    border-radius: 1vh;
+}  
+
+.showFrequence{
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}

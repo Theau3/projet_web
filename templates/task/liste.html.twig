@@ -15,6 +15,18 @@
                 }
             }
 
+
+            function validerFinal(taskId) {
+                var result = prompt("Vous êtes sur le point de finir votre objectif. Voulez-vous continuer ?", "valider, continuer, annuler");
+                if (result === "valider") {
+                    window.location.pathname = "/objectif/" + taskId + "/valider";
+                } else if (result === "continuer") {
+                    window.location.pathname = "/objectif/" + taskId + "/continuer";
+                } else {
+                    return false;
+                }
+            }
+
             function supprimer(taskId) {
                 if (confirm('Vous êtes sur le point de supprimer votre objectif. Voulez-vous continuer ?')) {
                     window.location.pathname = "/objectif/" + taskId + "/delete";
@@ -43,6 +55,11 @@
                 </tr>
             </thead>
             <tbody>
+                {% if objectifs is empty %}
+                    <tr>
+                        <td colspan="7" style="text-align: center;">Vous n'avez aucun objectif pour le moment.</td>
+                    </tr>
+                {% endif %}
                 {% for taskPerso in objectifs %}
                     <tr id="trBody">
                         <!-- mettre un lien sur la cellule -->
@@ -68,7 +85,7 @@
                                 </a>
                             </td>
                             {% else %}
-                            <td style="background-color='grey'">
+                            <td>
                                 {{ taskPerso.Task.category.nom }}
                             </td>
                             {% endif %}
@@ -86,14 +103,18 @@
                                         </button>
                                 </td>
                             {% else %}
-                                <td style="background-color='grey'">
+                                <td>
                                     <!-- l'avancement d'une tâche finie est forcément de 100% -->
                                     100%
                                 </td>
                             {% endif %}
                         {% if taskPerso.isDone == false %}
-                            <td>                
+                            <td> 
+                                 {% if taskPerso.Repetition + 1 == taskPerso.Task.Avancement %}               
+                                <button class="btn_valider"type="button" onclick="validerFinal({{taskPerso.Task.getIdTask()}})">Valider</button>
+                                {% else %}
                                 <button class="btn_valider"type="button" onclick="valider({{taskPerso.Task.getIdTask()}})">Valider</button>
+                                {% endif %}
                             </td>
                         {% else %}
                             <td>
