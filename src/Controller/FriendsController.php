@@ -14,6 +14,10 @@ class FriendsController extends AbstractController
 {
 
 
+
+
+
+
     private $security;
 
     public function __construct(Security $security)

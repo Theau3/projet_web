@@ -23,7 +23,7 @@ class HomeController extends AbstractController
         $this->security = $security;
     }
     #[Route('/home/{page}', name: 'app_home')]
-    public function home(string $page,ManagerRegistry $doctrine, SessionInterface $session, Request $request): Response
+    public function home(string $page, ManagerRegistry $doctrine, SessionInterface $session, Request $request): Response
     {
         //$repository = $doctrine->getRepository(User::class);
         //$username = $this->getUser()->getUserIdentifier();
@@ -34,13 +34,13 @@ class HomeController extends AbstractController
         $progression = $user->getProgression();
         $session->set('show_done', $request->request->get('show_done'));
 
-        $profile_picture = $user->getPp();  
+        $profile_picture = $user->getPp();
         $level = $user->getLevel($progression);
         $title = $user->getTitre($level);
-        $level_percentage = $user->getLevelPercentage($level,$progression);
+        $level_percentage = $user->getLevelPercentage($level, $progression);
 
         $url = $_SERVER['REQUEST_URI'];
-        return $this->render('home.html.twig',[
+        return $this->render('home.html.twig', [
             'profile_picture' => $profile_picture,
             'username' => $username,
             'title' => $title,
