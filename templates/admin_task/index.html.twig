@@ -14,37 +14,39 @@
     <a id="quitter" class="btn btn-danger" href = "/admin">retour au menu principal</a>
     <h1>Liste des tâches</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                <th>Avancement</th>
-                <th>Perso</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for task in tasks %}
-            <tr>
-                <td>{{ task.id }}</td>
-                <td>{{ task.Titre }}</td>
-                <td>{{ task.Description }}</td>
-                <td>{{ task.avancement }}</td>
-                <td>{{ task.Perso ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a class="btn btn-primary" href="{{ path('app_admin_task_show', {'id': task.id}) }}">voir</a>
-                    <a class="btn btn-success" href="{{ path('app_admin_task_edit', {'id': task.id}) }}">modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">Pas de tâches à afficher</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div id="divTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titre</th>
+                    <th>Description</th>
+                    <th>Avancement</th>
+                    <th>Perso</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for task in tasks %}
+                <tr>
+                    <td>{{ task.id }}</td>
+                    <td>{{ task.Titre }}</td>
+                    <td>{{ task.Description }}</td>
+                    <td>{{ task.avancement }}</td>
+                    <td>{{ task.Perso ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('app_admin_task_show', {'id': task.id}) }}">voir</a>
+                        <a class="btn btn-success" href="{{ path('app_admin_task_edit', {'id': task.id}) }}">modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Pas de tâches à afficher</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <div id="new-task">
         <a class="btn btn-success btn-new-task" href="{{ path('app_admin_task_new') }}">Créer une nouvelle tâche</a>

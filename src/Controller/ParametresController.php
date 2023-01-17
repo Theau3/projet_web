@@ -13,7 +13,6 @@ use Symfony\Component\Security\Core\Security;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use App\Entity\User;
 use App\Form\Type\NewProfilePictureType;
-use Doctrine\Persistence\ManagerRegistry;
 
 class ParametresController extends AbstractController
 {

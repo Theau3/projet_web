@@ -6,20 +6,21 @@ h1 {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 6.7vw;
+    font-size: 5vw;
     text-align: center;
     margin-top: 1vh;
     color: #DADEE3;
 }
 
 label{
-    font-family: 'Source Sans Pro';
+    font-family: 'poppins';
     color: #DADEE3;
 }
 
 form[name = "task"]{
     width : 30vw;
     margin-left : 35vw;
+    margin-top: 10vh;
 }
 
 #buttons{
@@ -29,7 +30,21 @@ form[name = "task"]{
     align-items: flex-start;
 }
 
+.btn-primary{
+    font-family : "poppins";
+    background-color: #E86C00;
+    border: none;
+    border-radius: 1vh;
+    
+}
+
+.btn-primary:hover{
+    background-color : #b96a35;
+}
+
 .btn{
     width: max-content;
     margin-bottom: 1vh;
+    border-radius: 1vh;
+    font-family: "poppins";
 }

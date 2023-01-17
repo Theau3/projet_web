@@ -86,6 +86,11 @@ label,legend{
     margin-left : 21vw;
 }
 
+#new_username_Valider:hover,#new_password_Valider:hover,#new_profile_picture_Valider:hover{
+    background-color: #a24c00;
+    color : lightgray;
+}
+
 #new_profile_picture_Valider{
     margin-left: 25vw;
 }

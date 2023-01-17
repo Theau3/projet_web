@@ -45,7 +45,13 @@ footer p {
     height: 4vh;
     min-height: 35px;
     line-height: 0;
-    padding-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+#btn-contact:hover {
+    background: #a24c00;
 }
 
 /*user infos*/
@@ -62,7 +68,10 @@ footer p {
 }
 
 #profile_picture {
-    height: 3.2vh;
+    height: 3.5vh;
+    width: 3.5vh;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
     border-radius: 20px;
 }
 
@@ -70,7 +79,7 @@ footer p {
     font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 600;
-    font-size: 0.7vw;
+    font-size: 0.8vw;
     line-height: 2.5vh;
 }
 
@@ -78,7 +87,7 @@ footer p {
     font-family: 'Source Sans Pro';
     font-style: normal;
     font-weight: 600;
-    font-size: 0.7vw;
+    font-size: 0.9vw;
     line-height: 1.8vh;
     margin-left: 0.5vw;
 }
@@ -98,6 +107,10 @@ footer p {
     color: #A5ABB3;
 }
 
+#parametres:hover, .fa-gear:hover {
+    color: #EBEEF2;
+}
+
 .fa-gear {
     color: #A5ABB3;
     line-height: 1.8vh;
@@ -111,9 +124,11 @@ footer p {
 .progress {
     border-radius: 0px;
     background-color: #885221;
-    margin-left: 2.3vw;
-    margin-right: 2.3vw;
+    margin : 0 auto;
     height: 0.9vh;
+    width: 5vw;
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
 }
 
 #niveau {
@@ -133,12 +148,13 @@ nav {
     left: 0.7vw;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 nav a {
     color: #FFFFFF;
     margin-top: 1.8vh;
-    font-size: 0.9vw;
+    font-size: 1.4vw;
     flex: 1;
 }
 
@@ -153,9 +169,9 @@ nav a:hover {
 nav #separator {
     position: absolute;
     width: 1px;
-    height: 13vh;
+    height: 15vh;
     background-color: #FFFFFF;
-    left: 1.6vw;
+    left: 2.1vw;
     top: calc(50% - 6.5vh);
 }
 
@@ -174,4 +190,12 @@ nav #separator {
 
 #logout {
     text-decoration: none;
+}
+
+#logout i {
+    font-size: 5vh;
+}
+
+#logout i:hover {
+    color: #db3c368d;
 }

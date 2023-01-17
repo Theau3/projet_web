@@ -12,7 +12,8 @@
     flex-direction: row;
     justify-content: space-around;
     margin-top: 6%;
-    margin-bottom: 2%;
+    margin-bottom: 4%;
+    align-items: center;
 }
 
 #HeaderObjectifs a, #Objectifs a{
@@ -35,10 +36,22 @@
     border: none;
     font-family: 'Poppins';
     font-style: normal;
-    font-size : x-large;
-    font-size: 2%;
+    font-size: 1vw;
     padding: 1% 1%;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height : 6vh;
+    width : 13vw;
 }
+
+#btn-ajout:hover{
+    background-color: #a24c00;
+    color : white;
+}
+
+
 
 #non_selected, #Objectifs a{
     text-decoration: none;
@@ -51,12 +64,13 @@
     justify-content: space-around;
     overflow-y: scroll;
     margin: 0 5%;
+    align-items: center;
 }
 
 #Objectifs a{
     margin: 1%;
     padding: 1%;
-    border-radius: 10px;
+    border-radius: 1vh;
     color: white;
     text-decoration: none;
     font-size: 1.5em;

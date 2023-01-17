@@ -18,7 +18,7 @@
     border: none;
 }
 
-#submit:hover{
+#submit:hover, .btn_valider:hover{
     background-color: #a24c00;
     color : lightgrey;
 }
@@ -53,8 +53,6 @@ tr:nth-child(even){
     padding: 1vh;
 }
 
-
-
 .btn_valider{
     background-color: #E86C00;
     color : whitesmoke;
@@ -74,10 +72,14 @@ tr:nth-child(even){
 
 }
 
-i{
+.btn_edit:hover, .btn_delete:hover, .fa-heart:hover{
+    color : #E86C00;
+}
+
+.table i, .fa-heart{
     color: whitesmoke;
 }
-i:hover{
+.table i:hover{
     color: #E86C00;
 }
 

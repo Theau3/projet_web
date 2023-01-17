@@ -13,31 +13,33 @@
     <a id="quitter" class="btn btn-danger" href = "/admin">retour au menu principal</a>
     <h1>Liste des catégories</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.nom }}</td>
-                <td>
-                    <a class="btn btn-primary" href="{{ path('app_admin_category_show', {'id': category.id}) }}">voir</a>
-                    <a class="btn btn-success" href="{{ path('app_admin_category_edit', {'id': category.id}) }}">modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">Pas de catégories à afficher</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div id="divTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.nom }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('app_admin_category_show', {'id': category.id}) }}">voir</a>
+                        <a class="btn btn-success" href="{{ path('app_admin_category_edit', {'id': category.id}) }}">modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Pas de catégories à afficher</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
     <div id="new-category">
         <a class="btn btn-success btn-new-category" href="{{ path('app_admin_category_new') }}">Créer une nouvelle catégorie</a>

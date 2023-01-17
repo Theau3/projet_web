@@ -14,37 +14,40 @@
     <a id="quitter" class="btn btn-danger" href = "/admin">retour au menu principal</a>
     <h1>Liste des Tâches perso</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Task_id</th>
-                <th>User_id</th>
-                <th>Repetition</th>
-                <th>DueDate</th>
-                <th>DateDebut</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for task_perso in task_persos %}
-            <tr>
-                <td>{{ task_perso.task_id }}</td>
-                <td>{{ task_perso.user_id }}</td>
-                <td>{{ task_perso.repetition }}</td>
-                <td>{{ task_perso.dueDate ? task_perso.dueDate|date('d/m/Y') : '' }}</td>
-                <td>{{ task_perso.dateDebut ? task_perso.dateDebut|date('d/m/Y') : '' }}</td>
-                <td>
-                    <a class="btn btn-primary" href="{{ path('app_admin_task_perso_show', {'Task': task_perso.Task}) }}">voir</a>
-                    <a class="btn btn-success" href="{{ path('app_admin_task_perso_edit', {'Task': task_perso.Task}) }}">modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">Pas de TâchesPerso</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+
+    <div id="divTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Task_id</th>
+                    <th>User_id</th>
+                    <th>Repetition</th>
+                    <th>DueDate</th>
+                    <th>DateDebut</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for task_perso in task_persos %}
+                <tr>
+                    <td>{{ task_perso.task_id }}</td>
+                    <td>{{ task_perso.user_id }}</td>
+                    <td>{{ task_perso.repetition }}</td>
+                    <td>{{ task_perso.dueDate ? task_perso.dueDate|date('d/m/Y') : '' }}</td>
+                    <td>{{ task_perso.dateDebut ? task_perso.dateDebut|date('d/m/Y') : '' }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('app_admin_task_perso_show', {'Task': task_perso.Task}) }}">voir</a>
+                        <a class="btn btn-success" href="{{ path('app_admin_task_perso_edit', {'Task': task_perso.Task}) }}">modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">Pas de TâchesPerso</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div id="new-task_perso">
         <a class="btn btn-success btn-new-task_perso" href="{{ path('app_admin_task_perso_new') }}">Nouvelle TâchePerso</a>
     </div>

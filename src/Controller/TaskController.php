@@ -6,20 +6,14 @@ namespace App\Controller;
 use App\Entity\Task;
 use App\Form\Type\TaskPersoType;
 use App\Entity\TaskPerso;
-use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
-use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Security;
-use Doctrine\Persistence\ManagerRegistry;
 use App\Repository\TaskPersoRepository;
-use App\Repository\TaskRepository;
 use App\Repository\CategoryRepository;
-use phpDocumentor\Reflection\PseudoTypes\True_;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class TaskController extends AbstractController
@@ -148,7 +142,11 @@ class TaskController extends AbstractController
         if($objectif->getRepetition()+1 == $objectif->getTask()->getAvancement() || $objectif->getRepetition() >= $objectif->getTask()->getAvancement()){
             $objectif->setIsDone(true);
             //Voir si on peut mettre l'xp en fonction de la difficulté
-            $xp = $objectif->getRepetition(); //Si on finit l'objectif on gagne autant d'xp que de répétitions en bonus
+            if ($objectif->getTask()->getAvancement() == 1){
+                $xp = 100;
+            } else {
+                $xp = $objectif->getRepetition(); //Si on finit l'objectif on gagne autant d'xp que de répétitions en bonus
+            }
             $user->setProgression($user->getProgression()+$xp);
         }
         if($objectif->getIsDone() == false) {
@@ -193,7 +191,8 @@ class TaskController extends AbstractController
             }
             else{
                 $nombreFrequence = intdiv($nombreJours, $choixTemps);
-                $avancement = $nombreFois * $nombreFrequence;
+                if ($nombreFrequence == 0) $avancement = $nombreFois; //Si l'objectif est réalisé en moins d'une période de temps
+                else $avancement = $nombreFois * $nombreFrequence;
             }
             $task->setAvancement($avancement);
             $task->setPerso(True);

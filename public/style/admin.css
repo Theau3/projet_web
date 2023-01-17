@@ -6,7 +6,7 @@ h1 {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 6.7vw;
+    font-size: 5vw;
     text-align: center;
     margin-top: 1vh;
     color: #DADEE3;
@@ -15,22 +15,22 @@ h1 {
 #boutons{
     display: flex;
     flex-direction: column;
-    width : 70vw;
-    margin-left: 15vw;
-    margin-top: 23vh;
+    width : 30vw;
+    margin : 0 auto;
+    margin-top: 20vh;
 }
 
 .btn-primary{
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     font-size: 2vw;
     background-color: #E86C00;
     border: none;
+    border-radius: 1vh;
     
 }
 
 .btn-primary:hover{
-    background-color : #ff6600;
-    color : lightslategray;
+    background-color : #b96a35;
 }
 
 .btn-primary:active{
