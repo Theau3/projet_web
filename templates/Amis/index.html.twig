@@ -1,0 +1,74 @@
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('style/index.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    {% endblock %}
+
+{% block body %}
+ <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
+        <div id="BodyObjectifs">
+            <div id="HeaderObjectifs">
+                {% if 'voir=demande' in url %}
+                    <a href="?voir=Amis" id = "non_selected">Amis</a>
+                    <a href="?voir=demande">Demande</a>
+                    <a class="btn-ajout" href="/home/addfriends"><i class="fa-solid fa-user-plus" color="#E86C00"></i></a>
+                {% else %}
+                    <a href="?voir=Amis">Amis</a>
+                    <a href="?voir=demande" id = "non_selected">Demande</a>
+                    <a class="btn-ajout" href="/home/addfriends"><i class="fa-solid fa-user-plus" color="#E86C00"></i></a>
+                {% endif %}
+            </div>
+            {% if 'voir=demande' in url %}
+            {{ render(controller('App\\Controller\\NotificationController::demande')) }}
+            {% else %}
+
+            <div class="container">
+                <table class="tableListe">
+                <thead class="tableHead">
+                    <tr id="trHeader">
+                        <th scope="col">Profil</th>
+                        <th scope="col">Pseudo</th>
+                        <th scope="col">Niveau</th>
+                        <th scope="col">Bar De Progression</th>
+                        <th scope="col">Supprimer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if friends is empty %}
+                        <tr>
+                            <td colspan="6" style="text-align: center;">Vous n'avez pas encore d'amis</td>
+                        </tr>
+                    {% endif %}
+                    {% for friend in friends %}
+                        <tr id="trBody">
+                            <!-- mettre un lien sur la cellule -->
+                            <td>
+                            <img class="ppfriends" src="{{asset('profile_pictures/' ~  friend.getpp()  ~ '')}}" alt ="profile picture">
+                        </td>
+                        <td>
+                            {{ friend.getusername() }}
+                        </td>
+                        <td>
+                            <div class="level">
+                               {{ friend.Level(friend.Progression()) }}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" aria-label="progress" style="width: {{friend.LevelPercentage(friend.Level(friend.Progression()),friend.Progression())}}%" aria-valuenow="{{friend.LevelPercentage(friend.Level(friend.Progression()),friend.Progression())}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </td>
+                        <td>
+                            <a href="{{ path('friends_delete', {'id': friend.getIdAmis()}) }}"> 
+                                <button class="btn_delete" type="button">
+                                    <i class="fas fa-trash-alt delete-icon"></i>
+                                </button>
+                            </a>
+                        </td>
+                    {% endfor %}
+                </table>
+            </div>
+            {% endif %}
+        </div>
+{% endblock %}

@@ -1,0 +1,127 @@
+.container {
+    overflow-y: scroll;
+}
+
+.tableListe {
+    color: whitesmoke;
+    background-color: #625D52;
+    border-radius: 1vh;
+    width: 100%;
+    height: 100%;
+}
+
+.tableHead {
+    background-color: #ea6805;
+    color: whitesmoke;
+    border-radius: 1vh;
+}
+
+.tableListe td,
+th {
+    text-align: center;
+    padding: 1vh;
+}
+
+.tableListe #trBody {
+    border-bottom: 0.1vh solid lightgray;
+}
+
+.btn_valider {
+    background-color: #E86C00;
+    color: whitesmoke;
+    border-radius: 1vh;
+    width: 12vh;
+    height: 4vh;
+    border: none;
+}
+
+.btn_show,
+.btn_edit,
+.btn_delete {
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
+    font-size: 1.5vh;
+    width: 100%;
+    height: 100%;
+
+}
+
+i:hover {
+    color: #E86C00;
+}
+
+#BodyObjectifs {
+    background-color: #534F47;
+    width: 65%;
+    height: 65%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#HeaderObjectifs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+#HeaderObjectifs a {
+    font-size: x-large;
+    font-family: 'poppins';
+    color: white;
+    text-decoration-color: white;
+    text-decoration-thickness: 3px;
+}
+
+#btn-ajout {
+    background-color: #E86C00;
+    border: none;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: x-large;
+    font-size: 2%;
+    padding: 1% 1%;
+}
+
+#non_selected {
+    text-decoration: none;
+}
+
+#Objectifs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow-y: scroll;
+    margin: 0 5%;
+}
+
+.ppfriends {
+    border-radius: 15px;
+    height: 6.2vh;
+}
+
+.btn_delete {
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
+    font-size: 1.5vh;
+    width: 100%;
+    height: 100%;
+
+}
+
+.tableListe {
+    color: whitesmoke;
+    background-color: #393939;
+    border-radius: 1vh;
+    width: 100%;
+    height: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #1b1e2c;
+}

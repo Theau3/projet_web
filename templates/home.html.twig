@@ -53,7 +53,7 @@
                      {{ render(controller('App\\Controller\\AddFriendsController::addfriends')) }}
                 {% endif %}
                 {% if page == 'friends' %}
-                     {{ render(controller('App\\Controller\\FriendsController::friends')) }}
+                    {{ render(controller('App\\Controller\\NotificationController::index')) }}
                 {% endif %}
             </div>
         {% endblock %}

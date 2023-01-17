@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Repository\NotificationRepository;
+use App\Repository\FriendsRepository;
 use App\Entity\Friends;
+use App\Entity\Notification;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -41,16 +45,18 @@ class AddFriendsController extends AbstractController
             'method' => 'GET',
         ]);
 
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-            if ($form->isValid()) {
+            if (1) {
                 $nom = $form->get('name')->getData();
                 $amis = $userRepository->findOneBy(['username' => $nom]);
                 if ($amis) {
                     $user2 = $amis;
                     $amitie->setUser1($user1);
                     $amitie->setUser2($user2);
+                    $amitie->setStatus(Friends::STATUS_PENDING);
                     $entityManager->persist($amitie);
                     $entityManager->flush();
                     return $this->redirect('/home/addfriends?tab=nom?form=ok');

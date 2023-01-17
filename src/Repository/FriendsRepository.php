@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-
+use App\Entity\User;
 use App\Entity\Friends;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -38,6 +38,28 @@ class FriendsRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findPendingFriendshipRequestsForUser(User $user): array
+    {
+        return $this->createQueryBuilder('f')
+            ->where('f.user2 = :user')
+            ->andWhere('f.status = :status')
+            ->setParameter('user', $user)
+            ->setParameter('status', Friends::STATUS_PENDING)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAcceptedFriendshipsForUser(User $user): array
+    {
+        return $this->createQueryBuilder('f')
+            ->where('f.user1 = :user OR f.user2 = :user')
+            ->andWhere('f.status = :status')
+            ->setParameter('user', $user)
+            ->setParameter('status', Friends::STATUS_ACCEPTED)
+            ->getQuery()
+            ->getResult();
     }
 
     //    /**

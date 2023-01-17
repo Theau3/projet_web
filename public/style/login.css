@@ -1,8 +1,8 @@
-body{
+body {
     background-color: #31302E;
 }
 
-h1{
+h1 {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
@@ -12,7 +12,7 @@ h1{
     color: #DADEE3;
 }
 
-p{
+p {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
@@ -22,9 +22,9 @@ p{
     margin-bottom: 6.6vh;
 }
 
-.form-control{
-    background-color : #534F47;
-    color : #FFFFFF;
+.form-control {
+    background-color: #534F47;
+    color: #FFFFFF;
     border: none;
     margin-top: 3.5vh;
     font-family: 'Poppins';
@@ -34,9 +34,9 @@ p{
     padding: 1.48vh 2vh;
 }
 
-.form-control:focus{
-    background-color : #534F47;
-    color : #FFFFFF;
+.form-control:focus {
+    background-color: #534F47;
+    color: #FFFFFF;
     border: none;
     margin-top: 3.5vh;
     font-family: 'Poppins';
@@ -47,34 +47,34 @@ p{
     box-shadow: 0 0 0 .2rem #885221;
 }
 
-.form-control::placeholder{
-    color : #ffffff70;
-    opacity : 1;
+.form-control::placeholder {
+    color: #ffffff70;
+    opacity: 1;
 }
 
-form{
+form {
     display: flex;
     flex-direction: column;
-    width : 19vw;
-    margin : 0 auto;
+    width: 19vw;
+    margin: 0 auto;
 }
 
-a{
+a {
     text-align: right;
     text-decoration: none;
-    color : #E86C00;
+    color: #E86C00;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 0.72vw;
-    margin : 1.7vh 0;
+    margin: 1.7vh 0;
 }
 
-a:hover{
-    color : #ff6600;
+a:hover {
+    color: #ff6600;
 }
 
-#connexion{
+#connexion {
     background-color: #E86C00;
     border: none;
     font-family: 'Poppins';
@@ -84,7 +84,7 @@ a:hover{
     padding: 1.2vh 0;
 }
 
-#register{
+#register {
     background-color: #885221;
     border: none;
     font-family: 'Poppins';
