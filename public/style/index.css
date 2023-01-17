@@ -11,7 +11,7 @@
 }
 
 .tableHead {
-    background-color: #ea6805;
+    background-color: #e86c0087;
     color: whitesmoke;
     border-radius: 1vh;
 }
@@ -76,6 +76,11 @@ i:hover {
     text-decoration-thickness: 3px;
 }
 
+#HeaderObjectifs a:hover {
+    color: lightgray;
+    text-decoration-color: lightgray;
+}
+
 #btn-ajout {
     background-color: #E86C00;
     border: none;
@@ -116,12 +121,13 @@ i:hover {
 
 .tableListe {
     color: whitesmoke;
-    background-color: #393939;
+    background-color: #1b1e2c;
     border-radius: 1vh;
     width: 100%;
     height: 100%;
 }
 
 tr:nth-child(even) {
-    background-color: #1b1e2c;
+    background-color: #31302E;
 }
+

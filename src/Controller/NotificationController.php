@@ -4,30 +4,29 @@ namespace App\Controller;
 
 use App\Repository\FriendsRepository;
 use App\Entity\Friends;
-use App\Entity\Notification;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Request;
-use App\Entity\User;
-
-use App\Form\Type\FriendsType;
-use App\Form\Type\SearchFormType;
-use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
-use Doctrine\Persistence\ManagerRegistry;
+
 
 
 class NotificationController extends AbstractController
 {
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        // Avoid calling getUser() in the constructor: auth may not
+        // be complete yet. Instead, store the entire Security object.
+        $this->security = $security;
+    }
 
     #[Route("/friends2", name: "friends_index")]
     public function index(FriendsRepository $friendshipRepository)
     {
-        $user = $this->getUser();
+        $user = $this->security->getUser();
 
         $acceptedFriendships = $friendshipRepository->findAcceptedFriendshipsForUser($user);
         $url = $_SERVER['REQUEST_URI'];
@@ -40,7 +39,7 @@ class NotificationController extends AbstractController
     #[Route("/demande", name: "friends_demande")]
     public function demande(FriendsRepository $friendshipRepository)
     {
-        $user = $this->getUser();
+        $user = $this->security->getUser();
 
         $pendingFriendshipRequests = $friendshipRepository->findPendingFriendshipRequestsForUser($user);
 
@@ -50,40 +49,38 @@ class NotificationController extends AbstractController
     }
 
 
-    /**
-     * @Route("/friends/accept-request/{id}", name="friends_accept_request")
-     */
-    //#[Route("/friends2", name: "friends_accept_request")]
+
+     #[Route("/friends/accept-request/{id}", name:"friends_accept_request")]
     public function acceptFriendshipRequest(int $id, FriendsRepository $friendshipRepository)
     {
-        $user = $this->getUser();
-        $friendship = $friendshipRepository->find($id);
-        if (!$friendship || $friendship->getUser2() !== $user || $friendship->getStatus() !== Friends::STATUS_PENDING) {
-            throw $this->createNotFoundException('Demande d\'amitié introuvable');
+        $user = $this->security->getUser();
+        $friendship = $friendshipRepository->findOneBy(['id_amis' => $id]);
+        if (!$friendship  || $friendship->getUser2() !== $user || $friendship->getStatus() !== Friends::STATUS_PENDING) {
+            throw $this->createNotFoundException('Demande d\'amitié introuvable : ');
         }
 
         $friendship->setStatus(Friends::STATUS_ACCEPTED);
-        $friendshipRepository->save($friendship);
+        $friendshipRepository->save($friendship, true);
 
         $this->addFlash('success', 'Demande d\'amitié acceptée');
 
-        return $this->redirectToRoute('friends_demande');
+        return $this->redirect('/home/friends?voir=tous?accept=ok');
     }
 
     #[Route("/friends/decline-request/{id}", name: "friends_decline_request")]
     public function declineFriendshipRequest(int $id, FriendsRepository $friendshipRepository)
     {
-        $user = $this->getUser();
-        $friendship = $friendshipRepository->find($id);
+        $user = $this->security->getUser();
+        $friendship = $friendshipRepository->findOneBy(['id_amis' => $id]);
         if (!$friendship || $friendship->getUser2() !== $user || $friendship->getStatus() !== Friends::STATUS_PENDING) {
             throw $this->createNotFoundException('Demande d\'amitié introuvable');
         }
         $friendship->setStatus(Friends::STATUS_DECLINED);
-        $friendshipRepository->save($friendship);
+        $friendshipRepository->save($friendship, true);
 
         $this->addFlash('success', 'Demande d\'amitié refusée');
 
-        return $this->redirectToRoute('friends_demande');
+        return $this->redirect('/home/friends?voir=tous?accept=ko');
     }
 
 

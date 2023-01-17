@@ -2,23 +2,18 @@
 
 namespace App\Controller;
 
-use App\Repository\NotificationRepository;
-use App\Repository\FriendsRepository;
+
 use App\Entity\Friends;
-use App\Entity\Notification;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
-use App\Form\Type\FriendsType;
 use App\Form\Type\SearchFormType;
 use App\Repository\UserRepository;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Security;
-use Doctrine\Persistence\ManagerRegistry;
+
 
 
 class AddFriendsController extends AbstractController
@@ -49,10 +44,9 @@ class AddFriendsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted()) {
-            if (1) {
                 $nom = $form->get('name')->getData();
                 $amis = $userRepository->findOneBy(['username' => $nom]);
-                if ($amis) {
+                if ($amis && $amis != $user1) {
                     $user2 = $amis;
                     $amitie->setUser1($user1);
                     $amitie->setUser2($user2);
@@ -61,7 +55,6 @@ class AddFriendsController extends AbstractController
                     $entityManager->flush();
                     return $this->redirect('/home/addfriends?tab=nom?form=ok');
                 }
-            }
             return $this->redirect('/home/addfriends?tab=nom?form=error');
         }
         $url = $_SERVER['REQUEST_URI'];

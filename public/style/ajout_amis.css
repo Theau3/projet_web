@@ -1,5 +1,28 @@
-body {
-    background-color: #31302E;
+#ajout {
+    background-color: #534F47;
+    width: 65%;
+    height : 65%;
+    border-radius: 15px;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#titre{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5vw;
+    text-align: center;
+    color: #DADEE3;
+    margin-top: 3vh;
+}
+
+#recherche {
+    display : flex;
+    margin : 0 auto;
+    margin-top: 12vh;
+    flex-direction: column;
 }
 
 label {
@@ -12,35 +35,31 @@ label {
 }
 
 .form-control {
-    background-color: #534F47;
+    background-color: #31302E;
     color: #FFFFFF;
     border: none;
-    margin-top: 3.5vh;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 0.72vw;
     padding: 1.48vh 2vh;
+    border: #E86C00;
 }
 
 .form-control:focus {
-    background-color: #534F47;
+    background-color: #31302E;
     color: #FFFFFF;
     border: none;
-    margin-top: 3.5vh;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
     font-size: 0.72vw;
-    padding: 1.48vh 2vh;
     box-shadow: 0 0 0 .2rem #885221;
 }
 
 form {
     display: flex;
     flex-direction: column;
-    width: 19vw;
-    margin-left: 20%;
 }
 
 #cherch {
@@ -54,6 +73,10 @@ form {
     padding: 1.2vh 0;
 }
 
+#cherch:hover {
+    background-color: #945115;
+}
+
 
 .form-check-input:focus {
     border-color: #E86C00;
@@ -65,7 +88,28 @@ form {
     border-color: #E86C00;
 }
 
-.alert {
-    width: 19vw;
-    margin-left: 23vw;
+h2 {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 2vw;
+    text-align: center;
+    color: #DADEE3;
+}
+
+#ajout i{
+    color: #E86C00;
+}
+
+#ajout i:hover{
+    color: #945115;
+}
+
+#close {
+    position: absolute;
+    top: 19%;
+    left: 26%;
+    margin-top: 1vh;
+    font-size: 4vh;
+    color: #E86C00;
 }

@@ -60,7 +60,7 @@ class Friends
 
     public function getUser2(): ?User
     {
-        return $this->user1;
+        return $this->user2;
     }
 
     public function setUser2(?User $user2): self
@@ -77,7 +77,7 @@ class Friends
 
     public function getpp()
     {
-        return $this->user2->getPp();
+        return $this->user1->getPp();
     }
 
     public function getusername1()

@@ -12,39 +12,41 @@
     <a id="quitter" class="btn btn-danger" href = "/admin">retour au menu principal</a>
     <h1>Liste des utilisateurs</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom d'utilisateur</th>
-                <th>Roles</th>
-                <th>Mot de passe</th>
-                <th>Progression</th>
-                <th>Photo de profil</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.id }}</td>
-                <td>{{ user.username }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
-                <td>{{ user.progression }}</td>
-                <td><img id="profile_picture" src="{{asset('profile_pictures/' ~ user.pp ~ '')}}" alt=""></td>
-                <td>
-                    <a class="btn btn-primary" href="{{ path('app_admin_user_show', {'id': user.id}) }}">voir</a>
-                    <a class="btn btn-success" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">modifier</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">Il n'y a pas d'utilisateurs</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div id="divTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom d'utilisateur</th>
+                    <th>Roles</th>
+                    <th>Mot de passe</th>
+                    <th>Progression</th>
+                    <th>Photo de profil</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>{{ user.progression }}</td>
+                    <td><img id="profile_picture" src="{{asset('profile_pictures/' ~ user.pp ~ '')}}" alt=""></td>
+                    <td>
+                        <a class="btn btn-primary" href="{{ path('app_admin_user_show', {'id': user.id}) }}">voir</a>
+                        <a class="btn btn-success" href="{{ path('app_admin_user_edit', {'id': user.id}) }}">modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Il n'y a pas d'utilisateurs</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <div id="new-user">
         <a class="btn btn-success btn-new-user" href="{{ path('app_admin_user_new') }}">Créer un nouvel utilisateur</a>
     </div>

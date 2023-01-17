@@ -16,6 +16,8 @@
     width: auto;
     height: auto;
     border: none;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 #submit:hover, .btn_valider:hover{
@@ -29,21 +31,21 @@
     visibility: hidden;
 }
 .tableHead{
-    background-color: #31302E;
+    background-color: #e86c0087;
     color : whitesmoke;
     border-radius: 1vh;
 }
 
 .tableListe{
     color : whitesmoke;
-    background-color: #90441E;
+    background-color: #1b1e2c;
     border-radius: 1vh;
     width: 100%;
     height: 100%;
 }
 
 tr:nth-child(even){
-    background-color: #675146;
+    background-color: #31302E;
 }
 
 
@@ -51,6 +53,10 @@ tr:nth-child(even){
 .tableListe td, th{
     text-align: center;
     padding: 1vh;
+}
+
+.table{
+    border-radius: 1vh;
 }
 
 .btn_valider{
@@ -82,37 +88,3 @@ tr:nth-child(even){
 .table i:hover{
     color: #E86C00;
 }
-
-#validation-div{
-    background-color: #31302E;
-    border-radius: 1vh;
-    border : 0.1vh solid #E86C00;
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    width: 50vh;
-    height: 35vh;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.2vh;
-}
-
-#validation-div h2{
-    color: #DADEE3;
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 1.8vw;
-    margin-top: 2vh;
-}
-
-#validation-div p{
-    color: #DADEE3;
-    font-family: 'Poppins';
-    font-weight: 400;
-    font-size: 0.7vw;
-    margin-top: 2vh;
-}   

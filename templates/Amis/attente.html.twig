@@ -30,17 +30,17 @@
                             <img class="ppfriends" src="{{asset('profile_pictures/' ~  friend.getpp()  ~ '')}}" alt ="profile picture">
                         </td>
                         <td>
-                            {{ friend.getusername() }}
+                            {{ friend.getusername1() }}
                         </td>
                         <td>
                         </td>
                         <td>
                         </td>
                         <td>
-                            <button class="btn_valider" type="button" href="{{ path('friends_accept_request', {'id': friend.getIdAmis()}) }}">Accepter</button>
+                            <a class="btn_valider" type="button" href="{{ path('friends_accept_request', {'id': friend.getIdAmis()}) }}">Accepter</button>
                         </td>
                         <td>
-                            <button class="btn_valider" type="button" href="{{ path('friends_decline_request', {'id': friend.getIdAmis()}) }}">Refuser</button>
+                            <a class="btn_valider" type="button" href="{{ path('friends_decline_request', {'id': friend.getIdAmis()}) }}">Refuser</button>
                         </td>
                     {% endfor %}
                 </table>

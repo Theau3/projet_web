@@ -134,7 +134,7 @@ class TaskController extends AbstractController
     }
 
     #[Route('/objectif/{id}/valider', name: 'valider_objectif')]
-    public function valider($id, EntityManagerInterface $entityManager, TaskPersoRepository $taskPersoRepository, Request $request): Response
+    public function valider($id, EntityManagerInterface $entityManager, TaskPersoRepository $taskPersoRepository): Response
     {
         $user = $this->security->getUser();
         $objectif = $taskPersoRepository->findOneBy(['user' => $user, 'Task' => $id]);

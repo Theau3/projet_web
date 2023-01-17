@@ -30,7 +30,7 @@
                         <th scope="col">Profil</th>
                         <th scope="col">Pseudo</th>
                         <th scope="col">Niveau</th>
-                        <th scope="col">Bar De Progression</th>
+                        <th scope="col">Barre de progression</th>
                         <th scope="col">Supprimer</th>
                     </tr>
                 </thead>
@@ -42,8 +42,7 @@
                     {% endif %}
                     {% for friend in friends %}
                         <tr id="trBody">
-                            <!-- mettre un lien sur la cellule -->
-                            <td>
+                        <td>
                             <img class="ppfriends" src="{{asset('profile_pictures/' ~  friend.getpp()  ~ '')}}" alt ="profile picture">
                         </td>
                         <td>
