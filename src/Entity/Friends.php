@@ -79,6 +79,10 @@ class Friends
     {
         return $this->user1->getPp();
     }
+    public function getpp2()
+    {
+        return $this->user2->getPp();
+    }
 
     public function getusername1()
     {
