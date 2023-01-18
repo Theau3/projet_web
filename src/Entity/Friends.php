@@ -112,4 +112,9 @@ class Friends
     {
         return $this->user2->getProgression();
     }
+
+    public function getProgression1(): ?int
+    {
+        return $this->user1->getProgression();
+    }
 }

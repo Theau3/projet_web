@@ -31,6 +31,7 @@ class NotificationController extends AbstractController
         $acceptedFriendships = $friendshipRepository->findAcceptedFriendshipsForUser($user);
         $url = $_SERVER['REQUEST_URI'];
         return $this->render('Amis/index.html.twig', [
+            'user' => $user,
             'friends' => $acceptedFriendships,
             'url' => $url
         ]);

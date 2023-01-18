@@ -35,6 +35,11 @@ security:
     access_control:
         - { path: ^/home, roles: ROLE_USER }
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/addfriends, roles: ROLE_ADMIN }
+        - { path: ^/friends2, roles: ROLE_ADMIN }
+        - { path: ^/demande, roles: ROLE_ADMIN }
+        - { path: ^/parametres, roles: ROLE_ADMIN }
+        - { path: ^/tous, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
 when@test:

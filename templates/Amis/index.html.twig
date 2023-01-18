@@ -46,16 +46,28 @@
                             <img class="ppfriends" src="{{asset('profile_pictures/' ~  friend.getpp2()  ~ '')}}" alt ="profile picture">
                         </td>
                         <td>
-                            {{ friend.getusername() }}
+                            {% if friend.getusername() == user.getUsername() %}
+                                {{friend.getusername1()}}
+                            {% else %}
+                                {{friend.getusername()}}
+                            {% endif %}
                         </td>
                         <td>
                             <div class="level">
-                               {{ friend.Level(friend.Progression()) }}
+                                {% if friend.getusername() == user.getUsername() %}
+                                    {{ friend.Level(friend.Progression1()) }}
+                                {% else %}
+                                    {{ friend.Level(friend.Progression()) }}
+                                {% endif %}
                             </div>
                         </td>
                         <td>
                             <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-label="progress" style="width: {{friend.LevelPercentage(friend.Level(friend.Progression()),friend.Progression())}}%" aria-valuenow="{{friend.LevelPercentage(friend.Level(friend.Progression()),friend.Progression())}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                {% if friend.getusername() == user.getUsername() %}
+                                    <div class="progress-bar" role="progressbar" aria-label="progress" style="width: {{friend.LevelPercentage(friend.Level(friend.Progression1()),friend.Progression1())}}%" aria-valuenow="{{friend.LevelPercentage(friend.Level(friend.Progression1()),friend.Progression1())}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                {% else %}
+                                    <div class="progress-bar" role="progressbar" aria-label="progress" style="width: {{friend.LevelPercentage(friend.Level(friend.Progression()),friend.Progression())}}%" aria-valuenow="{{friend.LevelPercentage(friend.Level(friend.Progression()),friend.Progression())}}" aria-valuemin="0" aria-valuemax="100"></div>
+                                {% endif %}
                             </div>
                         </td>
                         <td>
