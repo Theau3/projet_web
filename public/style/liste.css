@@ -89,17 +89,4 @@ tr:nth-child(even){
     color: #E86C00;
 }
 
-.btn_valider {
-    background-color: #E86C00;
-    border: none;
-    font-family: 'Poppins';
-    font-style: normal;
-    color: #DADEE3;
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 0.72vw;
-    padding: 1.2vh 1vh;
-    margin-top: 3vh;
-    height: 2.5vh;
-    width: 5vh;
-}
+
