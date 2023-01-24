@@ -51,7 +51,7 @@ i:hover {
     color: #E86C00;
 }
 
-#BodyObjectifs {
+#BodyAmis {
     background-color: #534F47;
     width: 65%;
     height: 65%;
@@ -60,7 +60,7 @@ i:hover {
     flex-direction: column;
 }
 
-#HeaderObjectifs {
+#HeaderAmis {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -68,7 +68,7 @@ i:hover {
     margin-bottom: 6%;
 }
 
-#HeaderObjectifs a {
+#HeaderAmis a {
     font-size: x-large;
     font-family: 'poppins';
     color: white;
@@ -76,7 +76,7 @@ i:hover {
     text-decoration-thickness: 3px;
 }
 
-#HeaderObjectifs a:hover {
+#HeaderAmis a:hover {
     color: lightgray;
     text-decoration-color: lightgray;
 }
@@ -95,14 +95,7 @@ i:hover {
     text-decoration: none;
 }
 
-#Objectifs {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    overflow-y: scroll;
-    margin: 0 5%;
-}
+
 
 .ppfriends {
     border-radius: 15px;
@@ -129,5 +122,34 @@ i:hover {
 
 tr:nth-child(even) {
     background-color: #31302E;
+}
+
+.containerTel{
+    display : none;
+}
+
+@media(max-width : 600px) {
+    .container{
+        display : none;
+    }
+    .containerTel{
+        display : block;
+    }
+    #BodyAmis {
+        width: 80%;
+        height: 50%;
+    }
+    #HeaderAmis {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #HeaderAmis a{
+        font-size: 6vw;
+        margin-bottom: 3vw;
+    }
+    .delete-icon{
+        font-size: 6vw;
+    }
 }
 

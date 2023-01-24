@@ -77,7 +77,7 @@ footer p {
 }
 
 #title {
-    font-family: 'Source Sans Pro';
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
     font-size: 0.8vw;
@@ -85,7 +85,7 @@ footer p {
 }
 
 #username {
-    font-family: 'Source Sans Pro';
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
     font-size: 0.9vw;
@@ -100,7 +100,7 @@ footer p {
 }
 
 #parametres {
-    font-family: 'Source Sans Pro';
+    font-family: 'Poppins';
     font-style: normal;
     font-weight: 800;
     line-height: 1.8vh;
@@ -181,7 +181,7 @@ nav #separator {
     width: 83vw;
 }
 
-.fa-right-from-bracket {
+#logout_i{
     color: rgba(255, 0, 0, 0.87);
     position: absolute;
     top: 1vh;
@@ -199,4 +199,199 @@ nav #separator {
 
 #logout i:hover {
     color: #db3c368d;
+}
+
+#menu-icon {
+    display: none;
+}
+
+#menu {
+    display: none;
+}
+
+#pp-show {
+    display: none;
+}
+
+#menu-icon button {
+    display: none;
+}
+
+@media(max-width: 600px) {
+    #menu-icon button{
+        display: block;
+    }
+    #pp-show {
+        display: block;
+    }
+
+    #menu-icon{
+        color :#E86C00;
+        display: block;
+        padding-bottom: 2vh;
+    }
+
+    #menu-icon button{
+        background-color: #31302E;
+        padding-left: 1vh;
+        padding-top : 1vh;
+        border: none;
+    }
+
+    #menu-icon i{
+        color :#E86C00;
+        font-size: 10vw;
+    }
+    #menu{
+        position: absolute;
+        left : 11vw;
+        top: 1vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        width: 20vw;
+        height: 90vw;
+        background-color: #625D52;
+        border : 1px solid #E86C00;
+    }
+    #menu i{
+        color :#E86C00;
+        font-size: 10vw;
+        margin-top : 5vw;
+    }
+    #menu a{
+        color :whitesmoke;
+        font-size: 4vw;
+        text-decoration: none;
+    }
+    h1{
+        display: none;
+    }
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+    #subpage {
+        width: 100vw;
+        margin-left: 10vw;
+        margin-top: 10vw;
+    }
+    #nav {
+        display: none;
+    }
+    #user-infos {
+        display: none;
+        padding: 4vw;
+        position: absolute;
+        top: 2vh;
+        right : 12vw;
+        border-radius: 1vh;
+        border: 1px solid #E86C00;
+    }
+    #profile_picture {
+        height: 11vw;
+        width: 11vw;
+        margin-bottom: 0.5vh;
+        border-radius: 3vw;
+        text-align: center;
+    }
+    #pp-show {
+        background-color: #31302E;
+        border : none;
+        position: absolute;
+        top: 0.5vh;
+        right : 0;
+    }
+    
+    #title {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 3.5vw;
+        line-height: 2.5vh;
+        text-align: center;
+    }
+    
+    #username {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 4vw;
+        line-height: 1.8vh;
+        margin-left: 0.5vw;
+        text-align: center;
+    }
+    
+    .fa-bell-o {
+        color: #EBEEF2;
+        line-height: 1.8vh;
+        font-size: 3vw;
+        text-align: center;
+    }
+    
+    #parametres {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 800;
+        line-height: 1.8vh;
+        font-size: 3vw;
+        color: #A5ABB3;
+    }
+
+    .fa-gear {
+        color: #A5ABB3;
+        line-height: 1.8vh;
+        font-size: 3vw;
+    }
+    
+    .progress-bar {
+        background-color: #E86C00;
+    }
+    
+    .progress {
+        border-radius: 0px;
+        background-color: #885221;
+        margin : 0 auto;
+        height: 0.9vh;
+        width: 15vw;
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+    }
+    
+    #niveau {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 2.5vw;
+        line-height: 2.5vh;
+    }
+
+    #btn-contact{
+        font-size: 4vw;
+        margin : 0 auto;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50vh;
+    }   
+    footer hr{
+        width: 10vw;
+        margin: 0 auto;
+    }
+    footer p{
+        font-size: 4vw;
+        margin: 0 auto;
+        padding-bottom: 1vh;
+    }
+    #logout{
+        display: none;
+    }
+    nav {
+        display: none;
+    }
 }

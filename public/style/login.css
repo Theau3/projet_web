@@ -93,3 +93,30 @@ a:hover {
     font-size: 0.72vw;
     padding: 1.2vh 0;
 }
+
+@media(max-width: 400px){
+    h1 {
+        font-size: 10vw;
+    }
+    p {
+        font-size: 4vw;
+    }
+    .form-control {
+        font-size: 4vw;
+        padding: 4vh 2vh;
+    }
+    .form-control:focus {
+        font-size: 2.5vw;
+        padding: 4vh 2vh;
+    }
+    form {
+        width: 80vw;
+    }
+    a {
+        font-size: 2.5vw;
+    }
+    #connexion, #register {
+        font-size: 4vw;
+        padding: 3vh 0;
+    }
+}

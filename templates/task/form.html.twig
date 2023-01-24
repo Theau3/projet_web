@@ -1,14 +1,25 @@
 {# templates/task/form.html.twig #}
 {# Cette page permet de gérer l'ajout, la modification et la continuation d'un objectif.#}
 {% block stylesheets %}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('style/task/form.css') }}">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    
 {% endblock %}
 
 {% block head %}
     <script>
+        jQuery(document).ready(function() {
+        // you may need to change this code if you are not using Bootstrap Datepicker
+        jQuery('.js-datepicker').datepicker({
+            format: 'dd-mm-yyyy',
+            todayHighlight: true,
+            autoclose: true,
+        });
+    });
+
         function showFrequence() {
         var x = document.getElementsByClassName("ChoixFrequence")[0];
         if (x.style.display === "none") {
@@ -17,6 +28,7 @@
             x.style.display = "none";
         }
         }
+
     </script>
 {% endblock %}
 

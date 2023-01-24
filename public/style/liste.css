@@ -90,3 +90,16 @@ tr:nth-child(even){
 }
 
 
+.containerTel{
+    display: none;
+}
+
+
+@media(max-width: 600px){
+    .container{
+        display: none;
+    }
+    .containerTel{
+        display: block;
+    }
+}

@@ -12,7 +12,7 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 1.5vw;
+    font-size: 3vh;
     text-align: center;
     color: #DADEE3;
     margin-top: 3vh;
@@ -41,7 +41,7 @@ label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.72vw;
+    font-size: 2vw;
     padding: 1.48vh 2vh;
     border: #E86C00;
 }
@@ -53,7 +53,7 @@ label {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 0.72vw;
+    font-size: 2vw;
     box-shadow: 0 0 0 .2rem #885221;
 }
 
@@ -69,7 +69,7 @@ form {
     font-style: normal;
     color: #DADEE3;
     font-weight: 400;
-    font-size: 0.72vw;
+    font-size: 2vw;
     padding: 1.2vh 0;
 }
 
@@ -92,7 +92,7 @@ h2 {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 2vw;
+    font-size: 3vw;
     text-align: center;
     color: #DADEE3;
 }
@@ -106,10 +106,53 @@ h2 {
 }
 
 #close {
-    position: absolute;
-    top: 19%;
-    left: 26%;
-    margin-top: 1vh;
-    font-size: 4vh;
-    color: #E86C00;
+    display: none;
+}
+
+@media(max-width: 600px) {
+    #ajout {
+        width: 80%;
+        height : 50%;
+        margin-top: 20vw;
+    }
+
+    #titre {
+        margin-top: 8vw;
+    }
+
+    #recherche {
+        margin-top: 10vw;
+    }
+
+    label {
+        font-size: 4vw;
+    }
+
+    .form-control {
+        font-size: 2.5vw;
+        padding: 5vw 4vw;
+    }
+
+    .form-control:focus{
+        font-size: 3vw;
+        padding: 5vw 4vw;
+    }
+
+    #cherch {
+        font-size: 4vw;
+        padding: 3vh 0;
+    }
+
+    h2 {
+        font-size: 8vw;
+    }
+
+    #close {
+        display : none;
+    }
+    
+    .form-check-input:checked{
+        font-size: 3vw;
+    }
+
 }

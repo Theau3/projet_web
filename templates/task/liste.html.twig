@@ -149,18 +149,77 @@
             </tbody>
         </table>
     </div>
+
+    <div class="containerTel">
+            <table class="tableListe">
+                <thead class="tableHead">
+                    <tr id="trHeader">
+                    <th scope="col">Titre</th>
+                    {% if show_done == true %}
+                        <th scope="col">Favoris</th>
+                    {% else %}
+                    <th scope="col">Validation</th>
+                    {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if objectifs is empty %}
+                        <tr>
+                            <td colspan="7" style="text-align: center;">Vous n'avez aucun objectif pour le moment.</td>
+                        </tr>
+                    {% endif %}
+                    {% for taskPerso in objectifs %}
+                        <tr id="trBody">
+                            <!-- mettre un lien sur la cellule -->
+                                {% if taskPerso.isDone == false %}
+                                <td>
+                                <a href="{{ path('objectif_show', {'id': taskPerso.Task.getIdTask()}) }}">
+                                    <button class="btn_show" type="button">
+                                        {{ taskPerso.Task.Titre }}
+                                    </button>
+                                </a>
+                                </td>
+                                {% else %}
+                                <td>
+                                    {{ taskPerso.Task.Titre }}
+                                </td>
+                                {% endif %}
+                                {% if taskPerso.isDone == false %}
+                                <td> 
+                                    {% if taskPerso.Repetition + 1 == taskPerso.Task.Avancement %}               
+                                    <button class="btn_valider"type="button" onclick="validerFinal({{taskPerso.Task.getIdTask()}})">Valider</button>
+                                    {% else %}
+                                    <button class="btn_valider"type="button" onclick="valider({{taskPerso.Task.getIdTask()}})">Valider</button>
+                                    {% endif %}
+                                </td>
+                                {% else %}
+                                <td>
+                                    {% if taskPerso.isFavoris == 1 %}
+                                    <a href="{{ path('objectif_favoris_delete', {'id': taskPerso.Task.Id}) }}">
+                                        <i class="fa-solid fa-heart"></i></a>
+                                    {% else %}
+                                        <a href="{{ path('objectif_favoris', {'id': taskPerso.Task.Id}) }}">
+                                            <i class="fa-regular fa-heart"></i></a>
+                                    {% endif %}
+                                </td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     
-    {% if show_done == 1 %}
-    <form id="tachesFinies" method="post">
-        <input type="text" id="show_done" name="show_done"  value="0">
-        <input id="submit" type="submit" value="Afficher les objectifs en cours">
-    </form>
-    {% else %}
-    <form id="tachesFinies" method="post">
-        <input type="text" id="show_done" name="show_done" value="1">
-        <input id="submit" type="submit" value="Afficher les objectifs terminés">
-    </form>
-    {% endif %}
+        {% if show_done == 1 %}
+        <form id="tachesFinies" method="post">
+            <input type="text" id="show_done" name="show_done"  value="0">
+            <input id="submit" type="submit" value="Objectifs en cours">
+        </form>
+        {% else %}
+        <form id="tachesFinies" method="post">
+            <input type="text" id="show_done" name="show_done" value="1">
+            <input id="submit" type="submit" value="Objectifs terminés">
+        </form>
+        {% endif %}
 
     {% endblock %}
 </html>

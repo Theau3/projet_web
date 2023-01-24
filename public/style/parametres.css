@@ -123,3 +123,80 @@ input[type="radio"]:checked + label{
 legend{
     text-align: center;
 }
+
+@media(max-width: 600px){
+    #HtmlParametres{
+        width: 80%;
+        height : 80%;
+        margin-top: 20vw;
+    }
+
+    #h1Parametres{
+        font-size: 6vw;
+    }
+
+    hr{
+        display: none;
+    }
+
+    #HeaderParametres{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    #HeaderParametres a{
+        font-size: 5vw;
+        font-family: 'poppins';
+        color : white;
+        text-decoration: none;
+        text-decoration-color: white;
+        text-decoration-thickness: 3px;
+        margin-top: 2vw;
+    }
+
+    #BodyParametres hr{
+        display: none;
+    }
+
+    label{
+        font-size: 3vw;
+    }
+
+    #new_username,#new_password, #new_profile_picture{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 6vh 0;
+    }
+
+    #new_profile_picture_pp{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    #BodyParametres img{
+        margin-top: 1vh;
+        margin-left: -5vw;
+        border-radius: 20px;
+    }
+
+
+    #new_username_Valider, #new_password_Valider, #new_profile_picture_Valider{
+        margin : 0 auto;
+        width : 30vw;
+        height : 8vw;
+        font-size: 3vw;
+    }
+
+
+    .form-control{
+        width : 50vw;
+        margin : 0 auto;
+    }
+
+}

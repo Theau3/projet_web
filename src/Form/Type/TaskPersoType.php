@@ -21,11 +21,13 @@ class TaskPersoType extends AbstractType
             ->add('dateDebut', DateType::class,
                 [
                     'label' => 'Date de début',
+                    'html5' => false,
                     'attr' => ['class' => 'js-datepicker'],
                 ])
             ->add('dueDate', DateType::class, 
             [
                 'label' => 'Date de fin',
+                'html5' => false,
                 'attr' => ['class' => 'js-datepicker'],
             ])
             ->add('Enregistrer', SubmitType::class)

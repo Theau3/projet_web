@@ -44,7 +44,36 @@
                         </td>
                     {% endfor %}
                 </table>
-            </div>
+        </div>
+
+        <div class="containerTel">
+            <table class="tableListe">
+            <thead class="tableHead">
+                <tr id="trHeader">
+                    <th scope="col">Pseudo</th>
+                    <th scope="col">Valider</th>
+                    <th scope="col">Refuser</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% if friendss is empty %}
+                        <td colspan = "7" style="text-align:center;"><p id="noAmis">Vous n'avez pas de demande d'amis en attente</p></td>
+                {% endif %}
+                {% for friend in friendss %}
+                    <tr id="trBody">
+                        <!-- mettre un lien sur la cellule -->
+                    <td>
+                        {{ friend.getusername1() }}
+                    </td>
+                    <td>
+                        <a class="btn_valider" type="button" href="{{ path('friends_accept_request', {'id': friend.getIdAmis()}) }}">Oui</button>
+                    </td>
+                    <td>
+                        <a class="btn_valider" type="button" href="{{ path('friends_decline_request', {'id': friend.getIdAmis()}) }}">Non</button>
+                    </td>
+                {% endfor %}
+            </table>
         </div>
 
 {% endblock %}

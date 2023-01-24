@@ -97,3 +97,33 @@ th {
 .table i:hover {
     color: #E86C00;
 }
+
+.containerTel{
+    display: none;
+}
+
+.btn_valider{
+    background-color: #E86C00;
+    color : whitesmoke;
+    border-radius: 1vw;
+    width: 15vw;
+    height: 4vw;
+    border: none;
+    text-decoration: none;
+    font-size: 5vw;
+    font-family: 'poppins';
+    padding: 1vw;
+}
+
+@media(max-width: 600px) {
+    .container{
+        display: none;
+    }
+    .containerTel{
+        display: block;
+    }
+    .tableListe {
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -62,18 +62,56 @@ form{
     background-color: #E86C00;
     border: none;
     font-family: 'Poppins';
+    color: #DADEE3;
     font-style: normal;
     font-weight: 400;
     font-size: 0.72vw;
     padding: 1.2vh 0;
 }
 
+.btn:hover{
+    background-color: #a24c00;
+    color: lightgray;
+}
+
 .form-check-input:focus{
     border-color: #E86C00;
-    box-shadow: 0 0 0 .25rem rgba(232, 108, 0,.25);
+    
 }
 
 .form-check-input:checked {
     background-color: #E86C00;
     border-color: #E86C00;
+}
+
+@media(max-width: 400px){
+    h1 {
+        font-size: 10vw;
+        margin-bottom: 8vw;
+    }
+    p {
+        font-size: 4vw;
+    }
+    .form-control {
+        font-size: 4vw;
+        padding: 4vh 2vh;
+    }
+    .form-control:focus {
+        font-size: 2.5vw;
+        padding: 4vh 2vh;
+    }
+    form {
+        width: 80vw;
+    }
+    a {
+        font-size: 2.5vw;
+    }
+    label {
+        font-size: 4vw;
+    }
+
+    .btn {
+        font-size: 6vw;
+        padding: 3vh 0;
+    }
 }

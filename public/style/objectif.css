@@ -306,7 +306,93 @@ h2{
     text-align: center;
 }
 
+@media(max-width: 600px){
+    #ObjectifBody{
+        padding-top: 4vw;
+    }
+    #HautObjectif{
+        flex-direction: column;
+    }
+    #HautObjectif #gauche{
+        flex: 1;
+    }
+    #HautObjectif #droite{
+        flex: 1;
+        margin-top: 2vh;
+    }
+    #BasObjectif{
+        margin-top: 2vh;
+    }
+    #BasObjectif p{
+        font-size: 1.5vw;
+    }
+    .fc th, .fc td, .fc-daygrid-day-number{
+        font-size: 2vw;
+    }
+    #gauche h2{
+        font-size: 5vw;
+    }
+    
+    #validation-div{
+        width: 80vw;
+        height: 80vw;
+    }
+    #validation-div h2{
+        font-size: 5vw;
+    }
+    #validation-div p{
+        font-size: 3vw;
+    }
+    .progress{
+        width: 70%;
+        font-size: 1.5vw;
+    }
+    .progress-bar{
+        height: 2vh;
+    }
+    #separator{
+        width: 80%;
+    }
+    #nom_obj{
+        font-size: 6vw;
+    }
+    #icon-div{
+        top: 90%;
+        right : 10vw;
+        height : 32vw;
+        width: 11vw;
+        padding: 1vw;
+    }
 
+    #icon-div i{
+        margin-top: 4vw;
+        font-size: 10vw;
+    }
+    #icon{
+        font-size: 8vw;
+    }
+    #fc-dom-1{
+        font-size: 4vw;
+    }
+    #calendar button{
+        font-size: 4vw;
+    }
+    #droite button{
+        font-size: 4vw;
+    }
+    i{
+        font-size: 8vw;
+    }
+
+    #HautHeader{
+        text-align: center;
+        align-items: center;
+    }
+
+    #progressText{
+        font-size: 3vw;
+    }
+}
 
 
 

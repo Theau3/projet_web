@@ -9,12 +9,51 @@
             <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
         {% endblock %}
         <title>{% block title %}Home{% endblock %}</title>
+
+        {% block javascripts %}
+            <script>
+                function showMenu() {
+                    var menu = document.getElementById("menu");
+                    var menu_icon = document.getElementById("menu-icon");
+                    if (menu.style.display === "none") {
+                        menu.style.display = "block";
+                    } else {
+                        menu.style.display = "none";
+                        menu_icon.style.display = "block";
+                    }
+                }
+
+                function showUserInfos() {
+                    var user_infos = document.getElementById("user-infos");
+                    var user_infos_tel = document.getElementById("user-infos-tel");
+                    if (user_infos.style.display === "none") {
+                        user_infos.style.display = "block";
+                    } else {
+                        user_infos.style.display = "none";
+                        user_infos_tel.style.display = "block";
+                    }
+                }
+            </script>
+        {% endblock %}
     </head>
     <body>
         {% block body %}
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
             <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
-            <a id="logout" href="/logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+
+            <a id="logout" href="/logout"><i id="logout_i" class="fa-solid fa-right-from-bracket"></i></a>
+            <div id="menu-icon">
+                <button id="btn_menu" onclick="showMenu()"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <div id="menu">
+                <a href="/home/objectifs" {% if ("home" in url and "friends" not in url) %}id ="selected"{% endif %}><i class="fa-solid fa-house"></i>Objectifs</a>
+                <a href="/home/friends" {% if ("friends" in url or "addfriends" in url) %}id ="selected"{% endif %}><i class="fa-solid fa-user-group"></i>Amis</a>
+                {% if "ROLE_ADMIN" in roles %}
+                    <a href="/admin"><i class="fa-solid fa-toolbox"></i>Admin</a>
+                {% endif %}
+                <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+            </div>
+
             <h1>Skopo</h1>
             <nav>
                 <a href="/home/objectifs" {% if ("home" in url and "friends" not in url) %}id ="selected_icon"{% endif %}><i class="fa-solid fa-house"></i></a>
@@ -24,6 +63,11 @@
                 {% endif %}
                 <span id="separator"></span>
             </nav>
+
+
+            <div id="user-infos-tel">
+                <button id="pp-show" onclick="showUserInfos()"><img id="profile_picture" src="{{asset('profile_pictures/' ~ profile_picture ~ '')}}" alt=""></button>
+            </div>
             <div id="user-infos">
 
                 <img id="profile_picture" src="{{asset('profile_pictures/' ~ profile_picture ~ '')}}" alt="">

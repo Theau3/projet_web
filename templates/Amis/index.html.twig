@@ -7,8 +7,8 @@
 
 {% block body %}
  <script src="https://kit.fontawesome.com/a398bc3145.js" crossorigin="anonymous"></script>
-        <div id="BodyObjectifs">
-            <div id="HeaderObjectifs">
+        <div id="BodyAmis">
+            <div id="HeaderAmis">
                 {% if 'voir=demande' in url %}
                     <a href="?voir=Amis" id = "non_selected">Amis</a>
                     <a href="?voir=demande">Demande</a>
@@ -80,6 +80,50 @@
                     {% endfor %}
                 </table>
             </div>
+
+            <div class="containerTel">
+                    <table class="tableListe">
+                    <thead class="tableHead">
+                        <tr id="trHeader">
+                            <th scope="col">Pseudo</th>
+                            <th scope="col">Niveau</th>
+                            <th scope="col">Supprimer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if friends is empty %}
+                            <tr>
+                                <td colspan="6" style="text-align: center;">Vous n'avez pas encore d'amis</td>
+                            </tr>
+                        {% endif %}
+                        {% for friend in friends %}
+                        <tr id="trBody">
+                        <td>
+                            {% if friend.getusername() == user.getUsername() %}
+                                {{friend.getusername1()}}
+                            {% else %}
+                                {{friend.getusername()}}
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="level">
+                                {% if friend.getusername() == user.getUsername() %}
+                                    {{ friend.Level(friend.Progression1()) }}
+                                {% else %}
+                                    {{ friend.Level(friend.Progression()) }}
+                                {% endif %}
+                            </div>
+                        </td>
+                        <td>
+                            <a href="{{ path('friends_delete', {'id': friend.getIdAmis()}) }}"> 
+                                <button class="btn_delete" type="button">
+                                    <i class="fas fa-trash-alt delete-icon"></i>
+                                </button>
+                            </a>
+                        </td>
+                    {% endfor %}
+                    </table>
+                </div>
             {% endif %}
         </div>
 {% endblock %}
