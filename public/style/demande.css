@@ -1,0 +1,99 @@
+.container {
+    overflow-y: scroll;
+}
+
+#tachesFinies {
+    color: whitesmoke;
+    font-family: 'poppins';
+    margin: auto;
+}
+
+#submit {
+    background-color: #E86C00;
+    color: whitesmoke;
+    border-radius: 1vh;
+    padding: 1vh;
+    width: auto;
+    height: auto;
+    border: none;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#submit:hover,
+.btn_valider:hover {
+    background-color: #a24c00;
+    color: lightgrey;
+}
+
+#show_done {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.tableHead {
+    background-color: #e86c0087;
+    color: whitesmoke;
+    border-radius: 1vh;
+}
+
+.tableListe {
+    color: whitesmoke;
+    background-color: #1b1e2c;
+    border-radius: 1vh;
+    width: 100%;
+    height: 100%;
+}
+
+tr:nth-child(even) {
+    background-color: #31302E;
+}
+
+
+
+.tableListe td,
+th {
+    text-align: center;
+    padding: 1vh;
+}
+
+.table {
+    border-radius: 1vh;
+}
+
+.btn_valider {
+    background-color: #E86C00;
+    color: whitesmoke;
+    border-radius: 1vh;
+    width: 12vh;
+    height: 4vh;
+    border: none;
+}
+
+.btn_show,
+.btn_edit,
+.btn_delete {
+    background-color: transparent;
+    border: none;
+    color: whitesmoke;
+    font-size: 1.5vh;
+    width: 100%;
+    height: 100%;
+
+}
+
+.btn_edit:hover,
+.btn_delete:hover,
+.fa-heart:hover {
+    color: #E86C00;
+}
+
+.table i,
+.fa-heart {
+    color: whitesmoke;
+}
+
+.table i:hover {
+    color: #E86C00;
+}
